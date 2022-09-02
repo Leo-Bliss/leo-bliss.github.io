@@ -917,7 +917,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;lua-和-c-组件的通信&#34;&gt;lua 和 C 组件的通信&lt;/h2&gt;
 &lt;p&gt;lua 和 C 主要组件的通信 是通过强大的&lt;strong&gt;虚栈（virtual stack）&lt;/strong&gt;
-&lt;img src=&#34;https://cdn.nlark.com/yuque/0/2021/png/22158835/1628438458990-3d4e7c56-3359-476d-8d94-679e5f47bfe9.png#clientId=u5dd5abf4-1009-4&amp;amp;from=paste&amp;amp;height=294&amp;amp;id=u3f3da6a6&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image-20210808235705964.png&amp;amp;originHeight=587&amp;amp;originWidth=964&amp;amp;originalType=binary&amp;amp;ratio=1&amp;amp;size=25992&amp;amp;status=done&amp;amp;style=none&amp;amp;taskId=u50c835f9-6a2d-4c0b-95ab-c5cf8352bc4&amp;amp;width=482&#34;
+&lt;img src=&#34;https://example.com/capi-01.png&#34;
 	
 	
 	
@@ -983,7 +983,7 @@ void lua_copy (lua_State *L, int fromidx, int toidx);&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;insert 的宏实现#define lua_insert(L,idx) lua_rotate(L, (idx), 1)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.nlark.com/yuque/0/2021/png/22158835/1628438498960-423715fd-ddbe-4469-be1d-f9e70c94cade.png#clientId=u5dd5abf4-1009-4&amp;amp;from=paste&amp;amp;height=402&amp;amp;id=u053dd0ca&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image-20210808235805302.png&amp;amp;originHeight=804&amp;amp;originWidth=969&amp;amp;originalType=binary&amp;amp;ratio=1&amp;amp;size=120930&amp;amp;status=done&amp;amp;style=none&amp;amp;taskId=u48dd8639-a6d2-4e23-8918-4f3b8c1a3cc&amp;amp;width=484.5&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/capi-02.png&#34;
 	
 	
 	
