@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on tbyouth</title>
+        <link>https://example.com/page/</link>
+        <description>Recent content in Pages on tbyouth</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于</title>
+        <link>https://example.com/%E5%85%B3%E4%BA%8E/</link>
+        <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/%E5%85%B3%E4%BA%8E/</guid>
+        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;男 | 95后&lt;/li&gt;
+&lt;li&gt;偏客户端&lt;/li&gt;
+&lt;li&gt;主要技术栈： C/C++、 Lua、 Python&lt;/li&gt;
+&lt;li&gt;兴趣爱好：爱音乐、爱追番、技术宅、偶尔刷算法题醒醒脑&lt;/li&gt;
+&lt;li&gt;邮箱：tbyouth11@gmail.com&lt;/li&gt;
+&lt;li&gt;座右铭：尊重每一个参与你生命中的人&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>归档</title>
+        <link>https://example.com/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://example.com/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/search/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>友链</title>
+        <link>https://example.com/%E5%8F%8B%E9%93%BE/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/%E5%8F%8B%E9%93%BE/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;可交换友链~&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
