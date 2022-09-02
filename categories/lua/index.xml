@@ -12,7 +12,7 @@
         <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/p/lua-c-api/</guid>
-        <description>&lt;h2 id=&#34;一个简单的lua-解释器&#34;&gt;一个简单的lua 解释器&lt;/h2&gt;
+        <description>&lt;img src="https://example.com/p/lua-c-api/capi-01.png" alt="Featured image of post lua-C API" /&gt;&lt;h2 id=&#34;一个简单的lua-解释器&#34;&gt;一个简单的lua 解释器&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -108,15 +108,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;lua-和-c-组件的通信&#34;&gt;lua 和 C 组件的通信&lt;/h2&gt;
-&lt;p&gt;lua 和 C 主要组件的通信 是通过强大的&lt;strong&gt;虚栈（virtual stack）&lt;/strong&gt;
-&lt;img src=&#34;https://example.com/capi-01.png&#34;
-	
-	
-	
+&lt;p&gt;lua 和 C 主要组件的通信 是通过强大的&lt;strong&gt;虚栈（virtual stack）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/p/lua-c-api/capi-01.png&#34;
+	width=&#34;964&#34;
+	height=&#34;587&#34;
+	srcset=&#34;https://example.com/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_480x0_resize_box_3.png 480w, https://example.com/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image-20210808235705964.png&#34;
+		alt=&#34;capi-01&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;164&#34;
+		data-flex-basis=&#34;394px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;虚栈压入元素&#34;&gt;虚栈压入元素&lt;/h3&gt;
@@ -147,42 +151,61 @@
 &lt;p&gt;参数sz是需要检查的slots数量，第二个函数使得可以返回一个自定义的出错信息而不是错误码；&lt;/p&gt;
 &lt;h3 id=&#34;虚栈提取元素&#34;&gt;虚栈提取元素&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;index可正可负，第一个压入元素（栈底）的index=1,最后压入元素（栈顶）的index=-1；&lt;/li&gt;
-&lt;li&gt;获取栈中元素个数：size_t n = lua_gettop(L)；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;检查获取元素的类型&lt;/strong&gt; 可以使用：int lua_is* (lua_State *L, int index);,*换成想要检查的&lt;strong&gt;lua数据类型&lt;/strong&gt; ，比如lua_isnil,lua_isstring。lua_isnumber和lua_isstring比较特殊，两者并不能确定元素类型而是是检查index位置上的元素是否可以转换为该类型。除此之外可以使用lua_type(L,index)获取到元素类型，返回值是lua.h中定义的宏，比如：LUA_TNIL, LUA_TBOOLEAN, LUA_TNUMBER, LUA_TSTRING。&lt;/li&gt;
-&lt;li&gt;获取元素的函数：&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;index可正可负，第一个压入元素（栈底）的index=1,最后压入元素（栈顶）的index=-1；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取栈中元素个数：size_t n = lua_gettop(L)；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;检查获取元素的类型&lt;/strong&gt; 可以使用：int lua_is* (lua_State *L, int index);,*换成想要检查的&lt;strong&gt;lua数据类型&lt;/strong&gt; ，比如lua_isnil,lua_isstring。lua_isnumber和lua_isstring比较特殊，两者并不能确定元素类型而是是检查index位置上的元素是否可以转换为该类型。除此之外可以使用lua_type(L,index)获取到元素类型，返回值是lua.h中定义的宏，比如：LUA_TNIL, LUA_TBOOLEAN, LUA_TNUMBER, LUA_TSTRING。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取元素的函数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;int lua_toboolean (lua_State *L, int index); // nil和false时为0，其他类型元素为1&lt;/li&gt;
+&lt;li&gt;const char *lua_tolstring (lua_State *L, int index,size_t *len); // 同时获取字符串长度，存到len中&lt;/li&gt;
+&lt;li&gt;const char *lua_tostring (lua_State *L, int index); // 不需要长度信息可使用这个函数获取字符串&lt;/li&gt;
+&lt;li&gt;lua_State *lua_tothread (lua_State *L, int index); // index处获取一个线程，失败时返回NULL&lt;/li&gt;
+&lt;li&gt;lua_Number lua_tonumber (lua_State *L, int index);&lt;/li&gt;
+&lt;li&gt;lua_Integer lua_tointeger (lua_State *L, int index);&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;int lua_toboolean (lua_State *L, int index); // nil和false时为0，其他类型元素为1
-const char *lua_tolstring (lua_State *L, int index,size_t *len); // 同时获取字符串长度，存到len中
-const char *lua_tostring (lua_State *L, int index); // 不需要长度信息可使用这个函数获取字符串
-lua_State *lua_tothread (lua_State *L, int index); // index处获取一个线程，失败时返回NULL
-lua_Number lua_tonumber (lua_State *L, int index);
-lua_Integer lua_tointeger (lua_State *L, int index);&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;其他虚栈操作&#34;&gt;其他虚栈操作&lt;/h3&gt;
-&lt;p&gt;int lua_gettop (lua_State *L); // 获取栈元素个数，也是栈顶的的正index
-void lua_settop (lua_State *L, int index); // 当index大于现在栈元素个数时补nil,小于时丢弃多的，置空：lua_settop(L,0)
-void lua_pushvalue (lua_State *L, int index); // 拷贝一个index处的元素压入栈中
-void lua_rotate (lua_State *L, int index, int n); // 从index处到栈顶，旋转n个位置
-void lua_remove (lua_State *L, int index); // 移除index处元素
-void lua_insert (lua_State *L, int index); // 将index处元素放到栈顶
-void lua_replace (lua_State *L, int index); // 弹出栈顶元素赋值到index处
-void lua_copy (lua_State *L, int fromidx, int toidx);&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;lua_settop (lua_State *L, int index)的index也可以是负下标，由此定义了一个弹出n个元素的宏#define lua_pop(L,n) lua_settop(L,-(n)-1)比如弹出3个元素，lua_pop(L,3) =&amp;gt;lua_settop(L,-4),栈顶-1设置成-4，由-1 to -4 弹出了3个元素；&lt;/li&gt;
-&lt;li&gt;remove宏可通过rotate和pop来实现：&lt;/li&gt;
+&lt;li&gt;int lua_gettop (lua_State *L); // 获取栈元素个数，也是栈顶的的正index&lt;/li&gt;
+&lt;li&gt;void lua_settop (lua_State *L, int index); // 当index大于现在栈元素个数时补nil,小于时丢弃多的，置空：lua_settop(L,0)&lt;/li&gt;
+&lt;li&gt;void lua_pushvalue (lua_State *L, int index); // 拷贝一个index处的元素压入栈中&lt;/li&gt;
+&lt;li&gt;void lua_rotate (lua_State *L, int index, int n); // 从index处到栈顶，旋转n个位置&lt;/li&gt;
+&lt;li&gt;void lua_remove (lua_State *L, int index); // 移除index处元素&lt;/li&gt;
+&lt;li&gt;void lua_insert (lua_State *L, int index); // 将index处元素放到栈顶&lt;/li&gt;
+&lt;li&gt;void lua_replace (lua_State *L, int index); // 弹出栈顶元素赋值到index处&lt;/li&gt;
+&lt;li&gt;void lua_copy (lua_State *L, int fromidx, int toidx);&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;#define lua_remove(L,idx) (lua_rotate(L, (idx), -1), lua_pop(L, 1))&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;insert 的宏实现#define lua_insert(L,idx) lua_rotate(L, (idx), 1)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lua_settop (lua_State *L, int index)的index也可以是负下标，由此定义了一个弹出n个元素的宏#define lua_pop(L,n) lua_settop(L,-(n)-1)比如弹出3个元素，lua_pop(L,3) =&amp;gt;lua_settop(L,-4),栈顶-1设置成-4，由-1 to -4 弹出了3个元素；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;remove宏可通过rotate和pop来实现：&lt;code&gt;#define lua_remove(L,idx) (lua_rotate(L, (idx), -1), lua_pop(L, 1))&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;insert 的宏实现&lt;code&gt;#define lua_insert(L,idx) lua_rotate(L, (idx), 1)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/capi-02.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://example.com/p/lua-c-api/capi-02.png&#34;
+	width=&#34;969&#34;
+	height=&#34;804&#34;
+	srcset=&#34;https://example.com/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_480x0_resize_box_3.png 480w, https://example.com/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image-20210808235805302.png&#34;
+		alt=&#34;capi-02&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;289px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;
