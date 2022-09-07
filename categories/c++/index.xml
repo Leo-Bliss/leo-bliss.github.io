@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>C&#43;&#43; on tbyouth</title>
-        <link>https://example.com/categories/c&#43;&#43;/</link>
+        <link>https://tbyouth.github.io/categories/c&#43;&#43;/</link>
         <description>Recent content in C&#43;&#43; on tbyouth</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 06 Sep 2022 23:50:00 +0800</lastBuildDate><atom:link href="https://example.com/categories/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 06 Sep 2022 23:50:00 +0800</lastBuildDate><atom:link href="https://tbyouth.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>move and forward</title>
-        <link>https://example.com/p/move-and-forward/</link>
+        <link>https://tbyouth.github.io/p/move-and-forward/</link>
         <pubDate>Tue, 06 Sep 2022 23:50:00 +0800</pubDate>
         
-        <guid>https://example.com/p/move-and-forward/</guid>
+        <guid>https://tbyouth.github.io/p/move-and-forward/</guid>
         <description>&lt;h1 id=&#34;移动语义和完美转发&#34;&gt;移动语义和完美转发&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -166,10 +166,10 @@
         </item>
         <item>
         <title>《More Effective C&#43;&#43;》技术章节笔记</title>
-        <link>https://example.com/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</link>
+        <link>https://tbyouth.github.io/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</guid>
+        <guid>https://tbyouth.github.io/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;不可真&lt;code&gt;virtuel&lt;/code&gt;的函数可以借助可真&lt;code&gt;virtuel&lt;/code&gt;的成员函数达到&lt;strong&gt;伪&lt;/strong&gt;&lt;code&gt;virtual&lt;/code&gt;。比如构造函数和非成员函数的&amp;quot;虚&amp;quot;化：&lt;/p&gt;
@@ -544,10 +544,10 @@
         </item>
         <item>
         <title>c&#43;&#43;多线程总结</title>
-        <link>https://example.com/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link>
+        <link>https://tbyouth.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link>
         <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid>
+        <guid>https://tbyouth.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;h2 id=&#34;thread&#34;&gt;thread&lt;/h2&gt;
 &lt;p&gt;基础概念：&lt;/p&gt;
 &lt;ul&gt;
