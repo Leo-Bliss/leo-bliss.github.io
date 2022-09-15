@@ -142,7 +142,7 @@
 &lt;li&gt;可变参模板参数&lt;/li&gt;
 &lt;li&gt;基于范围的for循环： &lt;code&gt;for(auto x : vec){}&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;右值引用&lt;/li&gt;
-&lt;li&gt;移动构造和赋值构造&lt;/li&gt;
+&lt;li&gt;移动拷贝构造和移动赋值构造&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;default&lt;/code&gt;,&lt;code&gt;delete&lt;/code&gt;说明符&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;final&lt;/code&gt; ,&lt;code&gt;override&lt;/code&gt;说明符&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;lambda&lt;/code&gt;表达式&lt;/li&gt;
