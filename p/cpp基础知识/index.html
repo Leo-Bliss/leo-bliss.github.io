@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='
-疑问 突然写了上方这样的代码，然后居然没有报错。让我产生了疑问： private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？
-解答 封装是编译期的概念，是针对类型而非对象的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。 ref '><title>对于c&#43;&#43;面向对象访问权限的误解</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='cpp基础知识汇总'><title>cpp基础知识</title>
 
-<link rel='canonical' href='https://tbyouth.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/'>
+<link rel='canonical' href='https://tbyouth.github.io/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='对于c&#43;&#43;面向对象访问权限的误解'>
-<meta property='og:description' content='
-疑问 突然写了上方这样的代码，然后居然没有报错。让我产生了疑问： private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？
-解答 封装是编译期的概念，是针对类型而非对象的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。 ref '>
-<meta property='og:url' content='https://tbyouth.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='cpp基础知识'>
+<meta property='og:description' content='cpp基础知识汇总'>
+<meta property='og:url' content='https://tbyouth.github.io/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/'>
 <meta property='og:site_name' content='tbyouth'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:published_time' content='2022-09-08T23:06:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-08T23:06:00&#43;08:00'/>
-<meta name="twitter:title" content="对于c&#43;&#43;面向对象访问权限的误解">
-<meta name="twitter:description" content="
-疑问 突然写了上方这样的代码，然后居然没有报错。让我产生了疑问： private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？
-解答 封装是编译期的概念，是针对类型而非对象的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。 ref ">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:published_time' content='2022-09-11T23:51:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-11T23:51:00&#43;08:00'/>
+<meta name="twitter:title" content="cpp基础知识">
+<meta name="twitter:description" content="cpp基础知识汇总">
     </head>
     <body class="
     article-page
@@ -245,9 +239,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/">对于c&#43;&#43;面向对象访问权限的误解</a>
+            <a href="/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">cpp基础知识</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            cpp基础知识汇总
+        </h3>
         
     </div>
 
@@ -264,7 +262,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 08, 2022</time>
+                <time class="article-time--published">Sep 11, 2022</time>
             </div>
         
 
@@ -293,28 +291,34 @@
     <section class="article-content">
     
     
-    <p><img src="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png"
-	width="729"
-	height="550"
-	srcset="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, /p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-		alt="visit_private"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="132"
-		data-flex-basis="318px"
-	
-></p>
-<h2 id="疑问">疑问</h2>
-<p>突然写了上方这样的代码，然后居然没有报错。让我产生了疑问：
-private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？</p>
-<h2 id="解答">解答</h2>
+    <ul>
+<li>数组<code>int a[] = {1, 2, 3,4}</code>, a和&amp;a, &amp;a[0]的区别：
 <ul>
-<li>封装是编译期的概念，是<strong>针对类型而非对象</strong>的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。</li>
-<li><a class="link" href="https://www.cnblogs.com/woshizhizhong-tech/p/8450475.html"  target="_blank" rel="noopener"
-    >ref</a></li>
+<li>a为数组名，值是指针常量， 类型是指向元素类型的<strong>常量指针</strong>, 只有<strong>两种场合下数组名并不表现为指针常量</strong>：一是<code>sizeof</code>操作符，另一个是取地址操作符<code>&amp;</code></li>
+<li>&amp;a为<strong>数组的</strong>指针，<code>int(*p)[4] = &amp;a; // 指向4个int类型的数组指针</code></li>
+<li>&amp;a[0]为指向首元素的指针，<code>int* p = &amp;a[0];</code></li>
+<li>三者值相等，都等于首元素的地址</li>
+<li><code>sizeof(a)</code>等于整个数组所占字节，<code>sizeof(&amp;a) ==sizeof(&amp;a[0]) </code>为指针所占字节大小（4或8字节）</li>
+<li><code>&amp;a + 1</code>偏移整个数组所占字节大小，<code>a + 1</code> 和<code>&amp;a[0] + 1</code>偏移元素所占字节大小</li>
+</ul>
+</li>
+<li><code>char[] str = &quot;hello&quot;;</code>和<code>char* pstr = &quot;hello&quot;;</code>的区别：
+<ul>
+<li>第一个为字符串数组，第二个为字符串常量</li>
+<li><code>sizoef(str) = strlen(str)+1</code>，char数组后面会自动填充字符串结束符<code>\0</code>, <code>sizeof(pstr)</code>为指针大小</li>
+<li><code>str[1] = 'a'</code>修改是安全的，而对<code>*(ptr+1) = 'a'</code>修改是不安全的；</li>
+</ul>
+</li>
+<li><code>const</code>:
+<ul>
+<li>在<code>*</code>右边 则修饰 指针它本身，否则修饰它指向的内容</li>
+<li>修饰左值引用可以引用右值</li>
+<li>修饰成员函数可构成重载</li>
+</ul>
+</li>
+<li>对象指针为空指针可以调用成员函数，原因是函数地址在编译期已经确定了</li>
+<li><code>explicit</code>关键字是修饰构造函数的，表明不可以隐式转换成该类型对象</li>
+<li>有<code>int</code>和<code>int*</code>形参两个构成重载的函数，当传入<code>NULL</code>时将调用int形参版本的函数，原因是c++的<code>NULL</code>为0的宏。c++11引入<code>nullptr</code>可以解决这种调用不符本意的问题。</li>
 </ul>
 
 </section>
@@ -433,12 +437,12 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
             
                 
 <article class="">
-    <a href="/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+    <a href="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">cpp基础知识</h2>
+            <h2 class="article-title">对于c&#43;&#43;面向对象访问权限的误解</h2>
         </div>
     </a>
 </article>
@@ -588,39 +592,7 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
             >
 
             </main>
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#疑问">疑问</a></li>
-    <li><a href="#解答">解答</a></li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
+    
 
         </div>
         <script 

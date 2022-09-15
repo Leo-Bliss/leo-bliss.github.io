@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='
-疑问 突然写了上方这样的代码，然后居然没有报错。让我产生了疑问： private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？
-解答 封装是编译期的概念，是针对类型而非对象的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。 ref '><title>对于c&#43;&#43;面向对象访问权限的误解</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='语法层面新特性 结构化绑定声明： 1 2 3 4 5 6 std::map&amp;lt;int, int&amp;gt; mp; for(auto&amp;amp;&amp;amp; [k, v] : mp) { } std::tuple&amp;lt;int, double&amp;gt; tp(1, 2.0); auto[x, y] = tp; 标准库新特性 string_view: 当string使用char*进行构造时会重新分配内存然后拷贝char*指向的内容。 当内容只需要读取的时候完全不需要重新分配内存然后拷贝，只需要在原来的内容上建立一张视图，此时就可以使用string_view来做。 类型可擦除的std::any 多变类型std::variant，类似强化版的union 将tuple解包作为参数传入的std::apply: 1 2 3 4 5 auto print = [](int a, int b, int c) { std::cout &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; c &amp;lt;&amp;lt; std::endl; }; std::apply(print, std::tuple(1, 2, 3)); '><title>c&#43;&#43;17新特性</title>
 
-<link rel='canonical' href='https://tbyouth.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/'>
+<link rel='canonical' href='https://tbyouth.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='对于c&#43;&#43;面向对象访问权限的误解'>
-<meta property='og:description' content='
-疑问 突然写了上方这样的代码，然后居然没有报错。让我产生了疑问： private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？
-解答 封装是编译期的概念，是针对类型而非对象的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。 ref '>
-<meta property='og:url' content='https://tbyouth.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='c&#43;&#43;17新特性'>
+<meta property='og:description' content='语法层面新特性 结构化绑定声明： 1 2 3 4 5 6 std::map&amp;lt;int, int&amp;gt; mp; for(auto&amp;amp;&amp;amp; [k, v] : mp) { } std::tuple&amp;lt;int, double&amp;gt; tp(1, 2.0); auto[x, y] = tp; 标准库新特性 string_view: 当string使用char*进行构造时会重新分配内存然后拷贝char*指向的内容。 当内容只需要读取的时候完全不需要重新分配内存然后拷贝，只需要在原来的内容上建立一张视图，此时就可以使用string_view来做。 类型可擦除的std::any 多变类型std::variant，类似强化版的union 将tuple解包作为参数传入的std::apply: 1 2 3 4 5 auto print = [](int a, int b, int c) { std::cout &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; c &amp;lt;&amp;lt; std::endl; }; std::apply(print, std::tuple(1, 2, 3)); '>
+<meta property='og:url' content='https://tbyouth.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/'>
 <meta property='og:site_name' content='tbyouth'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:published_time' content='2022-09-08T23:06:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-08T23:06:00&#43;08:00'/>
-<meta name="twitter:title" content="对于c&#43;&#43;面向对象访问权限的误解">
-<meta name="twitter:description" content="
-疑问 突然写了上方这样的代码，然后居然没有报错。让我产生了疑问： private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？
-解答 封装是编译期的概念，是针对类型而非对象的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。 ref ">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:published_time' content='2022-09-13T21:49:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-13T21:49:00&#43;08:00'/>
+<meta name="twitter:title" content="c&#43;&#43;17新特性">
+<meta name="twitter:description" content="语法层面新特性 结构化绑定声明： 1 2 3 4 5 6 std::map&amp;lt;int, int&amp;gt; mp; for(auto&amp;amp;&amp;amp; [k, v] : mp) { } std::tuple&amp;lt;int, double&amp;gt; tp(1, 2.0); auto[x, y] = tp; 标准库新特性 string_view: 当string使用char*进行构造时会重新分配内存然后拷贝char*指向的内容。 当内容只需要读取的时候完全不需要重新分配内存然后拷贝，只需要在原来的内容上建立一张视图，此时就可以使用string_view来做。 类型可擦除的std::any 多变类型std::variant，类似强化版的union 将tuple解包作为参数传入的std::apply: 1 2 3 4 5 auto print = [](int a, int b, int c) { std::cout &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; c &amp;lt;&amp;lt; std::endl; }; std::apply(print, std::tuple(1, 2, 3)); ">
     </head>
     <body class="
     article-page
@@ -245,7 +239,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/">对于c&#43;&#43;面向对象访问权限的误解</a>
+            <a href="/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/">c&#43;&#43;17新特性</a>
         </h2>
     
         
@@ -264,7 +258,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 08, 2022</time>
+                <time class="article-time--published">Sep 13, 2022</time>
             </div>
         
 
@@ -293,30 +287,53 @@
     <section class="article-content">
     
     
-    <p><img src="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png"
-	width="729"
-	height="550"
-	srcset="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, /p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-		alt="visit_private"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="132"
-		data-flex-basis="318px"
-	
-></p>
-<h2 id="疑问">疑问</h2>
-<p>突然写了上方这样的代码，然后居然没有报错。让我产生了疑问：
-private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？</p>
-<h2 id="解答">解答</h2>
+    <h2 id="语法层面新特性">语法层面新特性</h2>
 <ul>
-<li>封装是编译期的概念，是<strong>针对类型而非对象</strong>的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。</li>
-<li><a class="link" href="https://www.cnblogs.com/woshizhizhong-tech/p/8450475.html"  target="_blank" rel="noopener"
-    >ref</a></li>
+<li>结构化绑定声明：</li>
 </ul>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">:</span> <span class="n">mp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">tp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">auto</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">tp</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="标准库新特性">标准库新特性</h2>
+<ul>
+<li><code>string_view</code>: 当<code>string</code>使用<code>char*</code>进行构造时会重新分配内存然后拷贝<code>char*</code>指向的内容。
+当内容只需要读取的时候完全不需要重新分配内存然后拷贝，只需要在原来的内容上建立一张视图，此时就可以使用<code>string_view</code>来做。</li>
+<li>类型可擦除的<code>std::any</code></li>
+<li>多变类型<code>std::variant</code>，类似强化版的<code>union</code></li>
+<li>将tuple解包作为参数传入的<code>std::apply</code>:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">print</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">apply</span><span class="p">(</span><span class="n">print</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -407,19 +424,6 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
             
                 
 <article class="">
-    <a href="/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">c&#43;&#43;17新特性</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/">
         
         
@@ -439,6 +443,19 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 
         <div class="article-details">
             <h2 class="article-title">cpp基础知识</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">对于c&#43;&#43;面向对象访问权限的误解</h2>
         </div>
     </a>
 </article>
@@ -610,8 +627,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#疑问">疑问</a></li>
-    <li><a href="#解答">解答</a></li>
+    <li><a href="#语法层面新特性">语法层面新特性</a></li>
+    <li><a href="#标准库新特性">标准库新特性</a></li>
   </ol>
 </nav>
         </div>
