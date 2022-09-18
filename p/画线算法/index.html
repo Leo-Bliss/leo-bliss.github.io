@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='画线算法总结'><title>画线算法</title>
+
+<link rel='canonical' href='https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='画线算法'>
+<meta property='og:description' content='画线算法总结'>
+<meta property='og:url' content='https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/'>
+<meta property='og:site_name' content='tbyouth'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DDA' /><meta property='article:tag' content='Bresenham' /><meta property='article:published_time' content='2022-09-18T22:19:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-18T22:19:00&#43;08:00'/>
+<meta name="twitter:title" content="画线算法">
+<meta name="twitter:description" content="画线算法总结">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu1a26190bbdbdf12368ddc85eaf2d8ae2_58950_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">tbyouth</a></h1>
+            <h2 class="site-description">Keep learning keep coding</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/tbyouth'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/algorithm/" >
+                algorithm
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/">画线算法</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            画线算法总结
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 18, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 9 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="画线算法">画线算法</h1>
+<h2 id="简单的画线算法">简单的画线算法</h2>
+<p>根据直线方程两点式：</p>
+<p>$$
+\frac{(x - x_0)}{(x_1 - x_0)}   = \frac{(y - y_0)}{(y_1 - y_0)} = t, t \in [0, 1]
+$$
+那么有：
+$$
+x = t * (x_1 - x_0) + x_0 = (1- t) * x_0 + x_1 \ 
+y = t * (y_1 - y_0) + y_0 = (1- t) * y_0 + y_1
+$$</p>
+<p>则画线的算法代码为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">x1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">y1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述代码绘制效果：</p>
+<p><img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925.png"
+	width="295"
+	height="297"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220915182347925"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="99"
+		data-flex-basis="238px"
+	
+></p>
+<p>当<code>dt = 0.1</code>时，画出的却是一些离散的点：</p>
+<p><img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865.png"
+	width="297"
+	height="300"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220915182710865"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="99"
+		data-flex-basis="237px"
+	
+></p>
+<p>上述算法缺点：</p>
+<ul>
+<li>效率比较低，有比较多浮点数运算</li>
+<li><code>dt</code>取值太小容易出现重复计算，<code>dt</code>太大会出现断裂</li>
+</ul>
+<p>如何确定一个合适的步长<code>dt</code>呢？</p>
+<ul>
+<li>
+<p>很明显它和我们需要绘制多少个像素相关： 我们的步长每次增加一个像素长度，那么我们可以写出下面的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 线性插值: 已知x求解y
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// (x - x0) / (x1 - x0) = (y - y0) / (y1- y0) = t
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// =&gt; y = t * (y1 - y0) + y0 = (1 - t) * y0 + t * y1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x1</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0f</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">y1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述代码绘制效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">	<span class="c1">// 以下所有绘制直线都采用这三行代码测试
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">line</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">red</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">line</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">white</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">line</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">white</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627.png"
+	width="297"
+	height="300"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220915225521627"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="99"
+		data-flex-basis="237px"
+	
+></p>
+<p>结果分析：</p>
+<ul>
+<li>第二条比较陡峭的白线没有达到预期出现了断裂: 由于$|dx| &lt; |dy|$, $x$每增加1，$y$需要变化比较大</li>
+<li>第三条实际上是和第一条一样的线，只是方向不一样却没有绘制出来，否则应该会覆盖掉第一条红色的线</li>
+</ul>
+<p>修复后代码：（由后面DDA算法的实现，可以看出下方代码可以说是DDA的另一种实现，不同点只是借助线性插值的方式计算出增量后的y）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">steep</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">y0</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span><span class="c1">// |dx| &lt; |dy|， 转置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">steep</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">x0</span> <span class="o">&gt;</span> <span class="n">x1</span><span class="p">)</span> <span class="c1">// 起点到终点为从左到右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 线性插值: 已知x求解y
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// (x - x0) / (x1 - x0) = (y - y0) / (y1- y0) = t
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// =&gt; y = t * (y1 - y0) + y0 = (1- t) * y0 + t * y1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x1</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0f</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">y1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">steep</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span> <span class="c1">// 转置回来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>性能分析：</p>
+<ul>
+<li>
+<p>pass</p>
+</li>
+<li>
+<p>循环内有较多浮点数运算，效率比较低。</p>
+</li>
+</ul>
+<h2 id="dda-算法">DDA 算法</h2>
+<blockquote>
+<p>数值微分法:(Digital Differential Analyzer) DDA</p>
+</blockquote>
+<p>我们从直线截距式来看：
+$$
+y = kx + b \ 
+同时有：x = (y-b) / k
+$$</p>
+<p>很明显有：</p>
+<ul>
+<li>当$x$增量为$1$时，$y$增量为$k = dy/dx$;</li>
+<li>当$y$增量为$1$时， $x$增量为$1/k = dx/dy$ 。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">incx</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">incy</span> <span class="o">=</span> <span class="n">dy</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">steps</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="c1">// 由于第一个点画的是起点，所以从0开始
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">x</span> <span class="o">+=</span> <span class="n">incx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">y</span> <span class="o">+=</span> <span class="n">incy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述代码绘制结果：<img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306.png"
+	width="300"
+	height="300"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220916115757306"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+></p>
+<p>上面代码是$x$每次增量$1$，$y$每次增量$k$。发现$|dy| &gt; |dx|$时会出现断裂情况， 当然我们依然可以像上面的交换并转置来解决这个问题。但是这里我们可以采用另外一种解决办法：我们向<strong>最大位移方向</strong>($|dx| &gt; |dy|$ 则$x$，否则$y $)每次增量1。(除此之外，覆盖绘制不同颜色，左上角有点瑕疵，对绘制的像素<strong>坐标x,y四舍五入取整逼近最近像素点</strong>后就没有这个问题) 具体实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">dy</span><span class="p">));</span> <span class="c1">// 取最大位移方向：最大位移方向每次增加1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">incx</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">incy</span> <span class="o">=</span> <span class="n">dy</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">steps</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="c1">// 由于第一个点画的是起点，所以从0开始
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">0.5</span><span class="p">),</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">color</span><span class="p">);</span> <span class="c1">// +0.5取整比调用std::round效率高
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">x</span> <span class="o">+=</span> <span class="n">incx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">y</span> <span class="o">+=</span> <span class="n">incy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>绘制效果：</p>
+<p><img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585.png"
+	width="296"
+	height="298"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220916132718585"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="99"
+		data-flex-basis="238px"
+	
+></p>
+<p>性能分析：</p>
+<ul>
+<li>
+<p>pass</p>
+</li>
+<li>
+<p>消除了循环内部分浮点数运算，性能略有提升。</p>
+</li>
+</ul>
+<h2 id="bresenham算法">Bresenham算法</h2>
+<h3 id="中点的bresenham算法">中点的Bresenham算法</h3>
+<p>讨论一个简化的问题： 假设当前直线斜率$k \in [0, 1]$, 最大位移方向为$x$(始终有$|dx| &gt; |dy|$,如果不满足 代码实现上可交换$x$和$y$来满足此条件), 已知当前点$(x, y)$, 如何取下一个点？</p>
+<ul>
+<li>其实很明显，我们的下一个最佳逼近点只有两个候选点：</li>
+</ul>
+<p>$$
+p_d = (x+1, y) \
+p_u = (x+1, y+1)
+$$</p>
+<p>那到底取哪一个点呢？</p>
+<ul>
+<li>
+<p>哪个理论上离直线近就取哪一个。具体的我们可以这样评估：</p>
+<ul>
+<li>
+<p>取两个候选点的中点$p_m = (x + 1, y + 0.5)$</p>
+</li>
+<li>
+<p>如果中点$p_m$在直线上方，则直线离$p_d$更近, 取$p_d $；</p>
+</li>
+<li>
+<p>如果中点$p_m$在直线下方， 则直线离$p_u$更近, 取$p_u$；</p>
+</li>
+<li>
+<p>如果在直线上，那可以随意取其一。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>判断在直线上方还是下方，我们可以使用直线的隐式方程：
+$$
+f(x, y) = y - kx - b
+$$</p>
+</li>
+<li>
+<p>$f(x, y) &gt; 0$:  $(x, y)$在直线上方</p>
+</li>
+<li>
+<p>$f(x, y) &lt; 0$: $ (x, y)$ 在直线下方</p>
+</li>
+<li>
+<p>$f(x, y) = 0$, $(x, y)$ 在直线上</p>
+</li>
+<li>
+<p>如果直线斜率$k \in [-1,0]$, 那么候选点为：$p_u = (x+1, y )$, $p_d = (x+1, y - 1)$, 中点$p_m = (x+1, y-0.5)$在直线上方时取$p_d = (x+1, y - 1)$</p>
+</li>
+</ul>
+<p>根据上方思路写出代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">steep</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">y0</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span><span class="c1">// |dx| &lt; |dy|， 转置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">steep</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">x0</span> <span class="o">&gt;</span> <span class="n">x1</span><span class="p">)</span> <span class="c1">// 起点到终点为从左到右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 以下逻辑为斜率k: 0 &lt;= k &lt;= 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">k</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dy</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">auto</span> <span class="n">Fxy</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">y</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="kt">float</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x1</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">steep</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span> <span class="c1">// 转置回来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 候选点:(x+1, yi),(x+1, y+1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 两个候选点的中点(x + 1, y + 0.5)在直线下方，那么理论上直线离(x+1, y+1)更近
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="n">Fxy</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码分析：上方循环内计算<code>Fxy</code>为复杂的浮点数运算，而且判别比0大还是小还是浮点数比较。在性能上比不上DDA。</p>
+<p>实际上我们只需要知道判别式<code>Fxy</code>的符号， 如何来优化呢？</p>
+<p>当$k \in [0, 1]$, 我们先看看判别项$d = f(x_m, y_m)$的规律：
+$$
+d = f(x_m, y_m) = f(x_i + 1,y_i + 0.5) = y_i + 0.5 - k(x_i + 1) - b
+$$</p>
+<ul>
+<li>
+<p>$d &lt; 0$ , 取$(x_i + 1, y_i + 1)$, 那下一个判别项：
+$$
+d = f(x_i + 2, y_i + 1.5) = y_i + 1.5 - k(x_i + 2) - b 
+= y_i + 0.5 - k(x_i + 1) - b + 1 - k  = d - k + 1
+$$</p>
+</li>
+<li>
+<p>$d &gt;= 0$, 取$(x_i + 1, y_i)$, 那下一个判别项：
+$$
+d = f(x_i + 2, y_i + 0.5) = y_i + 0.5 - k(x_i + 2) - b = y_i + 0.5 - k(x_i + 1) - b - k
+= d - k \
+$$</p>
+</li>
+<li>
+<p>$d$的初始值：
+$$
+d_0 = f(x_0 + 1, y_0 + 0.5) = y_0 + 0.5 - k(x_0 + 1) - b = y_0 - kx_0 - b + 0.5 - k = f(x_0, y_0) + 0.5-k = 0.5 - k
+$$
+上方只有$0.5$和$k$两个浮点数，$k = dy / dx$, 我们可以对浮点数的项同时扩大$2 * dx$倍：
+$$
+d的初值:d_0 = dx - 2dy\
+d &lt; 0: d = d + 2dx - 2dy\
+d &gt;=0: d = d - 2dy
+$$</p>
+</li>
+<li>
+<p>$k \in [-1, 0]$ 时：</p>
+<ul>
+<li>
+<p>候选点为$(x+1, y), (x+1 y -1)$</p>
+</li>
+<li>
+<p>判别项:
+$$
+d = f(x_m, y_m) = f(x_i+1, y_i-0.5) = y_i - 0.5 - k(x_i+1) - b
+$$</p>
+</li>
+<li>
+<p>$d &gt; 0$时，取$(x + 1, y - 1)$, 那下一个判别项:
+$$
+d = f(x_i + 2, y_i - 1.5) = d - k - 1
+$$</p>
+</li>
+<li>
+<p>$d &lt;= 0$时，取$(x + 1, y)$, 那下一判别项：
+$$
+d = f(x_i + 2, y_i - 0.5) = d - k
+$$</p>
+</li>
+<li>
+<p>$d$的初值：
+$$
+d_0 = f(x0 + 1, y - 0.5) = -0.5 - k
+$$</p>
+</li>
+<li>
+<p>有浮点数的项同时扩大$2 * dx$倍：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$
+d的初值:d_0 = -dx - 2dy\
+d &gt; 0: d = d - 2dy - 2dx\
+d &lt;=0: d = d - 2dy
+$$</p>
+<p>那么优化后的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">steep</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">y0</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span><span class="c1">// |dx| &lt; |dy|， 转置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">steep</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">x0</span> <span class="o">&gt;</span> <span class="n">x1</span><span class="p">)</span> <span class="c1">// 起点到终点为从左到右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 以下逻辑为斜率k: 0 &lt;= k &lt;= 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">twoDx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">twoDy</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">-</span> <span class="n">twoDx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x1</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">steep</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span> <span class="c1">// 转置回来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="n">twoDx</span> <span class="o">-</span> <span class="n">twoDy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">twoDy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="改进的bresenham算法">改进的Bresenham算法</h3>
+<ul>
+<li>不使用中点，而是直接使用交点：以直线<strong>与每个像素格子的交点</strong> 和 <strong>相交像素格子右下角点</strong> 的距离 作为判别项$d$。</li>
+</ul>
+<p><img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964.png"
+	width="1081"
+	height="458"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220916180517964"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="236"
+		data-flex-basis="566px"
+	
+></p>
+<p><img src="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872.png"
+	width="891"
+	height="520"
+	srcset="/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_480x0_resize_box_3.png 480w, /p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220916180648872"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="411px"
+	
+></p>
+<p>综上：</p>
+<ul>
+<li>判别项$d$初值:$d_0 = 0$</li>
+<li>递推规律： $d = d + k$</li>
+<li>当 $d &gt; 0.5$, 选择$p_u = (x + 1, y + 1)$， 同时$d = d - 1$</li>
+<li>当$d &lt;= 0.5$, 选择$p_d = (x + 1, y)$</li>
+</ul>
+<p>发现出现$0.5$和$k$这两个浮点数, 对于$0.5$， 我们可以令$d$的初值：$d_0 = -0.5$ ，那么此时转化为$d$与0的比较</p>
+<p>此时$d = d + k$ 和$d = d - 1$依然存在浮点数计算（$d$初值-0.5，$k = dy/ dx$），我们可以让与浮点数相关项同时扩大$2*dx$倍用来消除浮点数, 那么就有：</p>
+<ul>
+<li>$d$的初值： $d_0 = -dx$</li>
+<li>$d$的递推规律： $d = d + 2dy$</li>
+<li>当 $d &gt; 0$, 选择$p_u = (x + 1, y + 1)$， 同时$d = d - 2dx$</li>
+<li>当$d &lt;= 0$, 选择$p_d = (x + 1, y) $</li>
+</ul>
+<p>当$k \in [-1,0]$时，递推判别项$d = d - k$, 然后将上述$(x + 1, y + 1)$ 替换成$(x + 1, y -1)$即可</p>
+<p>根据上述优化思路写出代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">line</span><span class="p">(</span><span class="kt">int</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="p">,</span> <span class="n">TGAImage</span><span class="o">&amp;</span> <span class="n">image</span><span class="p">,</span> <span class="k">const</span> <span class="n">TGAColor</span><span class="o">&amp;</span> <span class="n">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">steep</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">y0</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span><span class="c1">// |dx| &lt; |dy|， 转置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">steep</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">x0</span> <span class="o">&gt;</span> <span class="n">x1</span><span class="p">)</span> <span class="c1">// 起点到终点为从左到右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 以下逻辑为斜率k: 0 &lt;= k &lt;= 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="n">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">twoDx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">twoDy</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x1</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">steep</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span> <span class="c1">// 转置回来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">image</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="n">twoDy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">twoDx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考资料">参考资料：</h2>
+<ul>
+<li><a class="link" href="https://www.icourse163.org/course/HUST-1003636001"  target="_blank" rel="noopener"
+    >中国mooc: 华中科技大学《计算机图形学》</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/dda/">DDA</a>
+        
+            <a href="/tags/bresenham/">Bresenham</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="tbyouth/tbyouth.github.io"
+        issue-term="url"
+        
+        label="comments"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 tbyouth
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简单的画线算法">简单的画线算法</a></li>
+    <li><a href="#dda-算法">DDA 算法</a></li>
+    <li><a href="#bresenham算法">Bresenham算法</a>
+      <ol>
+        <li><a href="#中点的bresenham算法">中点的Bresenham算法</a></li>
+        <li><a href="#改进的bresenham算法">改进的Bresenham算法</a></li>
+      </ol>
+    </li>
+    <li><a href="#参考资料">参考资料：</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

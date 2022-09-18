@@ -173,9 +173,12 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;unorder_map&lt;/code&gt;和&lt;code&gt;unordered_set&lt;/code&gt;以及它们multi版本&lt;/li&gt;
 &lt;li&gt;类型萃取支持（type_traits）： 借助模板和模板的偏特化来实现的&lt;/li&gt;
-&lt;li&gt;并发库的支持： &lt;code&gt;thread&lt;/code&gt;,&lt;code&gt;mutex&lt;/code&gt;, &lt;code&gt;atomic&lt;/code&gt;等&lt;/li&gt;
+&lt;li&gt;并发库的支持： &lt;code&gt;thread&lt;/code&gt;,&lt;code&gt;mutex&lt;/code&gt;, &lt;code&gt;atomic&lt;/code&gt;, &lt;code&gt;condition_variable&lt;/code&gt;等&lt;/li&gt;
 &lt;li&gt;智能指针： &lt;code&gt;std::unique_ptr &lt;/code&gt;,&lt;code&gt;std::shared_ptr&lt;/code&gt;,&lt;code&gt;std::weak_ptr&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;初始化列表：&lt;code&gt;std::initializer_list&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;数组：&lt;code&gt;array&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;元组：&lt;code&gt;tuple&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;正则表达式：&lt;code&gt;regex&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;可代替函数指针的&lt;code&gt;std::function&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;用于包装函数对象的&lt;code&gt;std::bind&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;单链表：&lt;code&gt;std::forward_list&lt;/code&gt;&lt;/li&gt;
