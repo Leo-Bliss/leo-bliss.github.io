@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='c&#43;&#43;11开始引入了正则表达式库regex'><title>正则表达式总结</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='c&#43;&#43;正则表达式基础'><title>正则表达式总结</title>
 
 <link rel='canonical' href='https://tbyouth.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/'>
 
 <link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='正则表达式总结'>
-<meta property='og:description' content='c&#43;&#43;11开始引入了正则表达式库regex'>
+<meta property='og:description' content='c&#43;&#43;正则表达式基础'>
 <meta property='og:url' content='https://tbyouth.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/'>
 <meta property='og:site_name' content='tbyouth'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-09-15T14:57:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-15T14:57:00&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:published_time' content='2022-09-15T14:57:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-15T14:57:00&#43;08:00'/>
 <meta name="twitter:title" content="正则表达式总结">
-<meta name="twitter:description" content="c&#43;&#43;11开始引入了正则表达式库regex">
+<meta name="twitter:description" content="c&#43;&#43;正则表达式基础">
     </head>
     <body class="
     article-page
@@ -228,12 +228,28 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/regex/" >
+                Regex
+            </a>
+        
+            <a href="/categories/c&#43;&#43;/" >
+                C&#43;&#43;
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
             <a href="/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/">正则表达式总结</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            c&#43;&#43;正则表达式基础
+        </h3>
         
     </div>
 
@@ -265,7 +281,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -282,12 +298,366 @@
     <blockquote>
 <p>c++11开始引入了正则表达式库regex</p>
 </blockquote>
+<h2 id="正则语法基础">正则语法基础</h2>
+<ul>
+<li>
+<p><code>.</code>: 匹配任意单个字符，除了换行符<code>\n</code></p>
+</li>
+<li>
+<p><code>*</code>: 匹配之前子表达式<strong>0次或多次</strong></p>
+</li>
+<li>
+<p><code>?</code>: 匹配之前表达式 <strong>0次或1次</strong></p>
+</li>
+<li>
+<p><code>+</code>: 匹配之前表达式<strong>1次或多次</strong></p>
+</li>
+<li>
+<p><code>{m,n}</code>: 显示指明匹配前面子表达式<strong>m到n</strong>次</p>
+</li>
+<li>
+<p><code>{m}</code>: 显示指明匹配前面子表达式m次</p>
+</li>
+<li>
+<p><code>{m,}</code>: 显示指明匹配前面子表达式<strong>至少</strong>m次</p>
+</li>
+<li>
+<p><code>()</code>： 可用于创建子表达式，比如<code>([a-z]+)</code></p>
+</li>
+<li>
+<p><code>[]</code>: 用于匹配括号里面的内容，比如<code>[a-z0-9]</code></p>
+</li>
+<li>
+<p><code>^</code>:匹配输入字符串的开始位置，当出现在<code>[]</code>里面的开头时，表示除了<code>[]</code>里内容外都可以匹配，比如除了<code>a,b,c</code>外都可以匹配<code>[^abc]</code></p>
+</li>
+<li>
+<p><code>$</code>:匹配输入字符串的结束位置</p>
+</li>
+<li>
+<p><code>|</code>：两项中选一个，比如<code>([a-z]+)|([0-9]+)</code></p>
+</li>
+<li>
+<p><code>\d</code>: 匹配任意数字字符，等价<code>[0-9]</code></p>
+</li>
+<li>
+<p><code>\w</code>:匹配字母、数字、下划线，等价于<code>[A-Za-z0-9_]</code></p>
+</li>
+<li>
+<p><code>\W</code>:匹配非字母、数字、下划线，等价于 <code>[^A-Za-z0-9_]</code></p>
+</li>
+<li>
+<p><code>\</code>： 标识转义用于匹配一个原义字符，或者标识一个特殊字符</p>
+</li>
+</ul>
+<h2 id="c正则库的使用">c++正则库的使用</h2>
+<blockquote>
+<p>regex库提供了3个正则匹配算法，通过这3个算法来学习c++正则库的基本使用</p>
+</blockquote>
+<h3 id="regex_matchhttpsencppreferencecomwcppregexregex_match"><a class="link" href="https://en.cppreference.com/w/cpp/regex/regex_match"  target="_blank" rel="noopener"
+    >regex_match</a></h3>
+<ul>
+<li>
+<p>只关注有没有匹配成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">fnames</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;foo.txt&#34;</span><span class="p">,</span> <span class="s">&#34;bar.txt&#34;</span><span class="p">,</span> <span class="s">&#34;test&#34;</span><span class="p">,</span> <span class="s">&#34;a0.txt&#34;</span><span class="p">,</span> <span class="s">&#34;AAA.txt&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">txt_regex</span><span class="p">(</span><span class="s">&#34;[a-z]+</span><span class="se">\\</span><span class="s">.txt&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">for_each</span><span class="p">(</span><span class="n">fnames</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">fnames</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; is match:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">regex_match</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">txt_regex</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">foo.txt is match:true
+</span></span></span><span class="line"><span class="cl"><span class="cm">bar.txt is match:true
+</span></span></span><span class="line"><span class="cl"><span class="cm">test is match:false
+</span></span></span><span class="line"><span class="cl"><span class="cm">a0.txt is match:false
+</span></span></span><span class="line"><span class="cl"><span class="cm">AAA.txt is match:false
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>匹配成功并取得匹配项上下文内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">fnames</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;foo.txt&#34;</span><span class="p">,</span> <span class="s">&#34;bar.txt&#34;</span><span class="p">,</span> <span class="s">&#34;test&#34;</span><span class="p">,</span> <span class="s">&#34;a0.txt&#34;</span><span class="p">,</span> <span class="s">&#34;AAA.txt&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">base_regex</span><span class="p">(</span><span class="s">&#34;([a-z]+)</span><span class="se">\\</span><span class="s">.([a-z]+)&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">smatch</span> <span class="n">base_match</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">name</span> <span class="p">:</span> <span class="n">fnames</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">regex_match</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">base_match</span><span class="p">,</span> <span class="n">base_regex</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;----------&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">base_match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="c1">// v type: std::ssub_match, string val = v.str();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;----------&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">----------
+</span></span></span><span class="line"><span class="cl"><span class="cm">foo.txt
+</span></span></span><span class="line"><span class="cl"><span class="cm">foo
+</span></span></span><span class="line"><span class="cl"><span class="cm">txt
+</span></span></span><span class="line"><span class="cl"><span class="cm">----------
+</span></span></span><span class="line"><span class="cl"><span class="cm">----------
+</span></span></span><span class="line"><span class="cl"><span class="cm">bar.txt
+</span></span></span><span class="line"><span class="cl"><span class="cm">bar
+</span></span></span><span class="line"><span class="cl"><span class="cm">txt
+</span></span></span><span class="line"><span class="cl"><span class="cm">----------
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可见，只要<code>std::regex_match</code>第二个参数传入<code>std::smatch</code>对象即可获取匹配项的上下文结果， <code>std::smatch</code>为可迭代对象，第一项为<strong>整个表达式</strong>匹配结果，后续项为<strong>子表达式</strong>匹配结果。</p>
+</li>
+</ul>
+<h3 id="regex_searchhttpsencppreferencecomwcppregexregex_search"><a class="link" href="https://en.cppreference.com/w/cpp/regex/regex_search"  target="_blank" rel="noopener"
+    >regex_search</a></h3>
+<blockquote>
+<p>和<code>regex_match</code>的两种用法一样</p>
+</blockquote>
+<ul>
+<li>
+<p><code>regex_search</code>和<code>regex_match</code>的区别：</p>
+<ul>
+<li><code>regex_match</code>只考虑<strong>完全匹配</strong>:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">re</span><span class="p">(</span><span class="s">&#34;Get|GetValue&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">std</span><span class="o">::</span><span class="n">cmatch</span> <span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="n">std</span><span class="o">::</span><span class="n">regex_search</span><span class="p">(</span><span class="s">&#34;GetValue&#34;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">re</span><span class="p">);</span>  <span class="c1">// returns true, and m[0] contains &#34;Get&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">std</span><span class="o">::</span><span class="n">regex_match</span> <span class="p">(</span><span class="s">&#34;GetValue&#34;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">re</span><span class="p">);</span>  <span class="c1">// returns true, and m[0] contains &#34;GetValue&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">std</span><span class="o">::</span><span class="n">regex_search</span><span class="p">(</span><span class="s">&#34;GetValues&#34;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">re</span><span class="p">);</span> <span class="c1">// returns true, and m[0] contains &#34;Get&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">std</span><span class="o">::</span><span class="n">regex_match</span> <span class="p">(</span><span class="s">&#34;GetValues&#34;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">re</span><span class="p">);</span> <span class="c1">// returns false
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>cmatch</code>和<code>smatch</code>两者定义：</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th><code>std::cmatch</code></th>
+<th><code>std::match_results&lt;const char*&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>std::smatch</code></td>
+<td><code>std::match_results&lt;std::string::const_iterator</code>&gt;</td>
+</tr>
+</tbody>
+</table></div>
+<p>更多匹配项上下文信息可以通过<code>std::smatch</code>的成员函数来获取：</p>
+<ul>
+<li>
+<p>匹配项前面内容：<code>prefix()</code></p>
+</li>
+<li>
+<p>匹配项后面内容：<code>suffix()</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">lines</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;Roses are #ff0000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="s">&#34;violets are #0000ff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="s">&#34;all of my base are belong to you&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">color_regex</span><span class="p">(</span><span class="s">&#34;#([a-f0-9]{2})&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="s">&#34;([a-f0-9]{2})&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="s">&#34;([a-f0-9]{2})&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// show contents of marked subexpressions within each match
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">smatch</span> <span class="n">color_match</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">line</span> <span class="p">:</span> <span class="n">lines</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">regex_search</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">color_match</span><span class="p">,</span> <span class="n">color_regex</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;matches for &#39;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&#39;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Prefix: &#39;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">color_match</span><span class="p">.</span><span class="n">prefix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&#39;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">color_match</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">color_match</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Suffix: &#39;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">color_match</span><span class="p">.</span><span class="n">suffix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\&#39;\n\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">matches for &#39;Roses are #ff0000&#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">Prefix: &#39;Roses are &#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">0: #ff0000
+</span></span></span><span class="line"><span class="cl"><span class="cm">1: ff
+</span></span></span><span class="line"><span class="cl"><span class="cm">2: 00
+</span></span></span><span class="line"><span class="cl"><span class="cm">3: 00
+</span></span></span><span class="line"><span class="cl"><span class="cm">Suffix: &#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">matches for &#39;violets are #0000ff&#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">Prefix: &#39;violets are &#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">0: #0000ff
+</span></span></span><span class="line"><span class="cl"><span class="cm">1: 00
+</span></span></span><span class="line"><span class="cl"><span class="cm">2: 00
+</span></span></span><span class="line"><span class="cl"><span class="cm">3: ff
+</span></span></span><span class="line"><span class="cl"><span class="cm">Suffix: &#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>std::regex_search</code>也支持直接传入c风格字符串进行匹配</p>
+</li>
+</ul>
+<h3 id="regex_replacehttpsencppreferencecomwcppregexregex_replace"><a class="link" href="https://en.cppreference.com/w/cpp/regex/regex_replace"  target="_blank" rel="noopener"
+    >regex_replace</a></h3>
+<ul>
+<li>匹配替换后直接返回替换后的结果：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span><span class="p">{</span> <span class="s">&#34;hello world&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">normal_regex</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">regex_replace</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">normal_regex</span><span class="p">,</span> <span class="s">&#34;regex&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&#34;Quick brown fox&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">vowel_re</span><span class="p">(</span><span class="s">&#34;a|e|i|o|u&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// write the results to an output iterator
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">regex_replace</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostreambuf_iterator</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">text</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">vowel_re</span><span class="p">,</span> <span class="s">&#34;*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// construct a string holding the results
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">regex_replace</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">vowel_re</span><span class="p">,</span> <span class="s">&#34;[$&amp;]&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">hello regex
+</span></span></span><span class="line"><span class="cl"><span class="cm">Q**ck br*wn f*x
+</span></span></span><span class="line"><span class="cl"><span class="cm">Q[u][i]ck br[o]wn f[o]x
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>替换项如果为<code>$&amp;</code>则表示保持匹配结果内容，在<code>$&amp;</code>两边加上字符很容易<strong>根据匹配结果 进行构造 替换项</strong></li>
+</ul>
 
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -333,6 +703,80 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c&#43;&#43;20新特性</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c&#43;&#43;14新特性</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c&#43;&#43;17新特性</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">c&#43;&#43;11新特性</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">cpp基础知识</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     
@@ -474,7 +918,45 @@
             >
 
             </main>
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#正则语法基础">正则语法基础</a></li>
+    <li><a href="#c正则库的使用">c++正则库的使用</a>
+      <ol>
+        <li><a href="#regex_matchhttpsencppreferencecomwcppregexregex_match"><a href="https://en.cppreference.com/w/cpp/regex/regex_match">regex_match</a></a></li>
+        <li><a href="#regex_searchhttpsencppreferencecomwcppregexregex_search"><a href="https://en.cppreference.com/w/cpp/regex/regex_search">regex_search</a></a></li>
+        <li><a href="#regex_replacehttpsencppreferencecomwcppregexregex_replace"><a href="https://en.cppreference.com/w/cpp/regex/regex_replace">regex_replace</a></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
         </div>
         <script 
