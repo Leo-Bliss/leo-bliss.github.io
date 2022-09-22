@@ -31,7 +31,7 @@
 1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数'>
 <meta property='og:url' content='https://tbyouth.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/'>
 <meta property='og:site_name' content='tbyouth'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-08-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-31T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='多线程' /><meta property='article:published_time' content='2022-08-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-31T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="c&#43;&#43;多线程总结">
 <meta name="twitter:description" content="thread 基础概念：
 并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。
@@ -265,10 +265,6 @@
         
             <a href="/categories/c&#43;&#43;/" >
                 C&#43;&#43;
-            </a>
-        
-            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" >
-                多线程
             </a>
         
     </header>
@@ -735,6 +731,12 @@
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
