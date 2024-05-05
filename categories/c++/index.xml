@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>C&#43;&#43; on Leo</title>
-        <link>https://Leo.github.io/categories/c&#43;&#43;/</link>
+        <link>https://leo-bliss.github.io/categories/c&#43;&#43;/</link>
         <description>Recent content in C&#43;&#43; on Leo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 23 Sep 2022 21:21:00 +0800</lastBuildDate><atom:link href="https://Leo.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 23 Sep 2022 21:21:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>bool类型vector存在的问题以及替代方案</title>
-        <link>https://Leo.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</link>
+        <link>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</link>
         <pubDate>Fri, 23 Sep 2022 21:21:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</guid>
+        <guid>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</guid>
         <description>&lt;h2 id=&#34;-0x01-问题分析&#34;&gt;## 0x01 问题分析&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在&amp;laquo;Effective STL&amp;raquo;条目18中曾提到要避免使用&lt;code&gt;vector&amp;lt;bool&amp;gt;&lt;/code&gt;&lt;/p&gt;
@@ -212,10 +212,10 @@
         </item>
         <item>
         <title>vector几种初始化方式</title>
-        <link>https://Leo.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</link>
+        <link>https://leo-bliss.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</link>
         <pubDate>Sun, 18 Sep 2022 23:54:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</guid>
+        <guid>https://leo-bliss.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</guid>
         <description>&lt;h2 id=&#34;构造时初始化为指定值&#34;&gt;构造时初始化为指定值&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -307,10 +307,10 @@
         </item>
         <item>
         <title>正则表达式总结</title>
-        <link>https://Leo.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/</link>
+        <link>https://leo-bliss.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/</link>
         <pubDate>Thu, 15 Sep 2022 14:57:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/</guid>
+        <guid>https://leo-bliss.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;c++11开始引入了正则表达式库regex&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -666,10 +666,10 @@
         </item>
         <item>
         <title>c&#43;&#43;20新特性</title>
-        <link>https://Leo.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+        <link>https://leo-bliss.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</link>
         <pubDate>Thu, 15 Sep 2022 12:09:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+        <guid>https://leo-bliss.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
         <description>&lt;h2 id=&#34;语法层面新特性&#34;&gt;语法层面新特性&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;char8_ t&lt;/code&gt;&lt;/li&gt;
@@ -767,10 +767,10 @@
         </item>
         <item>
         <title>c&#43;&#43;14新特性</title>
-        <link>https://Leo.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+        <link>https://leo-bliss.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</link>
         <pubDate>Tue, 13 Sep 2022 23:39:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+        <guid>https://leo-bliss.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
         <description>&lt;h2 id=&#34;语法层面新特性&#34;&gt;语法层面新特性&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;变量模板&lt;/li&gt;
@@ -799,10 +799,10 @@
         </item>
         <item>
         <title>c&#43;&#43;17新特性</title>
-        <link>https://Leo.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+        <link>https://leo-bliss.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</link>
         <pubDate>Tue, 13 Sep 2022 21:49:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+        <guid>https://leo-bliss.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
         <description>&lt;h2 id=&#34;语法层面新特性&#34;&gt;语法层面新特性&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;结构化绑定声明：&lt;/li&gt;
@@ -853,10 +853,10 @@
         </item>
         <item>
         <title>c&#43;&#43;11新特性</title>
-        <link>https://Leo.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+        <link>https://leo-bliss.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</link>
         <pubDate>Tue, 13 Sep 2022 21:39:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+        <guid>https://leo-bliss.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
         <description>&lt;h2 id=&#34;语法层面新特性&#34;&gt;语法层面新特性&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;long long&lt;/code&gt;类型&lt;/li&gt;
@@ -913,10 +913,10 @@
         </item>
         <item>
         <title>cpp基础知识</title>
-        <link>https://Leo.github.io/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+        <link>https://leo-bliss.github.io/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
         <pubDate>Sun, 11 Sep 2022 23:51:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+        <guid>https://leo-bliss.github.io/p/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;数组&lt;code&gt;int a[] = {1, 2, 3,4}&lt;/code&gt;, a和&amp;amp;a, &amp;amp;a[0]的区别：
 &lt;ul&gt;
@@ -950,14 +950,14 @@
         </item>
         <item>
         <title>对于c&#43;&#43;面向对象访问权限的误解</title>
-        <link>https://Leo.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</link>
+        <link>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</link>
         <pubDate>Thu, 08 Sep 2022 23:06:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</guid>
-        <description>&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png&#34;
+        <guid>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png&#34;
 	width=&#34;729&#34;
 	height=&#34;550&#34;
-	srcset=&#34;https://Leo.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;visit_private&#34;
@@ -981,10 +981,10 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
         </item>
         <item>
         <title>vector中push_back和emplace_back有啥区别？</title>
-        <link>https://Leo.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</link>
+        <link>https://leo-bliss.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</link>
         <pubDate>Thu, 08 Sep 2022 22:57:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</guid>
+        <guid>https://leo-bliss.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</guid>
         <description>&lt;h2 id=&#34;vector&#34;&gt;vector&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;push_back&lt;/code&gt; 和&lt;code&gt;emplace_back&lt;/code&gt;:
@@ -1200,10 +1200,10 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
         </item>
         <item>
         <title>move and forward</title>
-        <link>https://Leo.github.io/p/move-and-forward/</link>
+        <link>https://leo-bliss.github.io/p/move-and-forward/</link>
         <pubDate>Tue, 06 Sep 2022 23:50:00 +0800</pubDate>
         
-        <guid>https://Leo.github.io/p/move-and-forward/</guid>
+        <guid>https://leo-bliss.github.io/p/move-and-forward/</guid>
         <description>&lt;h1 id=&#34;移动语义和完美转发&#34;&gt;移动语义和完美转发&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1358,10 +1358,10 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
         </item>
         <item>
         <title>《More Effective C&#43;&#43;》技术章节笔记</title>
-        <link>https://Leo.github.io/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</link>
+        <link>https://leo-bliss.github.io/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</guid>
+        <guid>https://leo-bliss.github.io/p/more-effective-c-%E6%8A%80%E6%9C%AF%E7%AB%A0%E8%8A%82%E7%AC%94%E8%AE%B0/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;不可真&lt;code&gt;virtuel&lt;/code&gt;的函数可以借助可真&lt;code&gt;virtuel&lt;/code&gt;的成员函数达到&lt;strong&gt;伪&lt;/strong&gt;&lt;code&gt;virtual&lt;/code&gt;。比如构造函数和非成员函数的&amp;quot;虚&amp;quot;化：&lt;/p&gt;
@@ -1736,10 +1736,10 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
         </item>
         <item>
         <title>c&#43;&#43;多线程总结</title>
-        <link>https://Leo.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link>
+        <link>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link>
         <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid>
+        <guid>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;h2 id=&#34;thread&#34;&gt;thread&lt;/h2&gt;
 &lt;p&gt;基础概念：&lt;/p&gt;
 &lt;ul&gt;

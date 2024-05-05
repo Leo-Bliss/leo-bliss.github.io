@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Lua on Leo</title>
-        <link>https://Leo.github.io/categories/lua/</link>
+        <link>https://leo-bliss.github.io/categories/lua/</link>
         <description>Recent content in Lua on Leo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Leo.github.io/categories/lua/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-bliss.github.io/categories/lua/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>lua-C API</title>
-        <link>https://Leo.github.io/p/lua-c-api/</link>
+        <link>https://leo-bliss.github.io/p/lua-c-api/</link>
         <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/lua-c-api/</guid>
-        <description>&lt;img src="https://Leo.github.io/p/lua-c-api/capi-01.png" alt="Featured image of post lua-C API" /&gt;&lt;h2 id=&#34;一个简单的lua-解释器&#34;&gt;一个简单的lua 解释器&lt;/h2&gt;
+        <guid>https://leo-bliss.github.io/p/lua-c-api/</guid>
+        <description>&lt;img src="https://leo-bliss.github.io/p/lua-c-api/capi-01.png" alt="Featured image of post lua-C API" /&gt;&lt;h2 id=&#34;一个简单的lua-解释器&#34;&gt;一个简单的lua 解释器&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -109,10 +109,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;lua-和-c-组件的通信&#34;&gt;lua 和 C 组件的通信&lt;/h2&gt;
 &lt;p&gt;lua 和 C 主要组件的通信 是通过强大的&lt;strong&gt;虚栈（virtual stack）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/lua-c-api/capi-01.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://leo-bliss.github.io/p/lua-c-api/capi-01.png&#34;
 	width=&#34;964&#34;
 	height=&#34;587&#34;
-	srcset=&#34;https://Leo.github.io/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_480x0_resize_box_3.png 480w, https://Leo.github.io/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://leo-bliss.github.io/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;capi-01&#34;
@@ -194,10 +194,10 @@
 &lt;p&gt;insert 的宏实现&lt;code&gt;#define lua_insert(L,idx) lua_rotate(L, (idx), 1)&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/lua-c-api/capi-02.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://leo-bliss.github.io/p/lua-c-api/capi-02.png&#34;
 	width=&#34;969&#34;
 	height=&#34;804&#34;
-	srcset=&#34;https://Leo.github.io/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_480x0_resize_box_3.png 480w, https://Leo.github.io/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://leo-bliss.github.io/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;capi-02&#34;
@@ -546,10 +546,10 @@
         </item>
         <item>
         <title>lua-modules and packages</title>
-        <link>https://Leo.github.io/p/lua-modules-and-packages/</link>
+        <link>https://leo-bliss.github.io/p/lua-modules-and-packages/</link>
         <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/lua-modules-and-packages/</guid>
+        <guid>https://leo-bliss.github.io/p/lua-modules-and-packages/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;modules and packages , lua 5.1 后 提供了一系列模块和包策略&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -742,10 +742,10 @@
         </item>
         <item>
         <title>lua-metatables and  metamethods</title>
-        <link>https://Leo.github.io/p/lua-metatables-and-metamethods/</link>
+        <link>https://leo-bliss.github.io/p/lua-metatables-and-metamethods/</link>
         <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/lua-metatables-and-metamethods/</guid>
+        <guid>https://leo-bliss.github.io/p/lua-metatables-and-metamethods/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;metatables and  metamethods&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1386,10 +1386,10 @@
         </item>
         <item>
         <title>lua-function</title>
-        <link>https://Leo.github.io/p/lua-function/</link>
+        <link>https://leo-bliss.github.io/p/lua-function/</link>
         <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/lua-function/</guid>
+        <guid>https://leo-bliss.github.io/p/lua-function/</guid>
         <description>&lt;h3 id=&#34;函数调用形式&#34;&gt;函数调用形式&lt;/h3&gt;
 &lt;p&gt;一般函数调用都要加括号,但是又两种特殊情况不需要：&lt;/p&gt;
 &lt;ul&gt;
@@ -1579,10 +1579,10 @@
         </item>
         <item>
         <title>lua-table</title>
-        <link>https://Leo.github.io/p/lua-table/</link>
+        <link>https://leo-bliss.github.io/p/lua-table/</link>
         <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://Leo.github.io/p/lua-table/</guid>
+        <guid>https://leo-bliss.github.io/p/lua-table/</guid>
         <description>&lt;h3 id=&#34;table的key以及存储机制&#34;&gt;table的key以及存储机制&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
