@@ -3,16 +3,19 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='lua 相关的c api'><title>lua-C API</title>
 
-<link rel='canonical' href='https://tbyouth.github.io/p/lua-c-api/'>
+<link rel='canonical' href='https://Leo.github.io/p/lua-c-api/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='lua-C API'>
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='lua-C API'>
 <meta property='og:description' content='lua 相关的c api'>
-<meta property='og:url' content='https://tbyouth.github.io/p/lua-c-api/'>
-<meta property='og:site_name' content='tbyouth'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-07-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://tbyouth.github.io/p/lua-c-api/capi-01.png' />
+<meta property='og:url' content='https://Leo.github.io/p/lua-c-api/'>
+<meta property='og:site_name' content='Leo'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-07-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://Leo.github.io/p/lua-c-api/capi-01.png' />
 <meta name="twitter:title" content="lua-C API">
 <meta name="twitter:description" content="lua 相关的c api"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://tbyouth.github.io/p/lua-c-api/capi-01.png' />
+    <meta name="twitter:image" content='https://Leo.github.io/p/lua-c-api/capi-01.png' />
+  
+
+
     </head>
     <body class="
     article-page
@@ -67,14 +70,14 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">tbyouth</a></h1>
+            <h1 class="site-name"><a href="/">Leo</a></h1>
             <h2 class="site-description">Keep learning keep coding</h2>
         </div>
     </header><ol class="social-menu">
             
                 <li>
                     <a 
-                        href='https://github.com/tbyouth'
+                        href='https://github.com/Leo-Bliss'
                         target="_blank"
                         title="GitHub"
                     >
@@ -198,6 +201,25 @@
         
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://Leo.github.io/" selected></option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -360,10 +382,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp">#ifdef __cplusplus
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#endif
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;lua.h&#34; // 高度抽象化的基础API</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;lauxlib.h&#34; // 包含辅助库函数声明，函数以luaL_开头</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;lualib.h&#34; // 包含打开库的函数的声明</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#ifndef __cpluscplus
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;lua.h&#34;</span><span class="cp"> </span><span class="c1">// 高度抽象化的基础API
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;lauxlib.h&#34;</span><span class="cp"> </span><span class="c1">// 包含辅助库函数声明，函数以luaL_开头
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;lualib.h&#34;</span><span class="cp"> </span><span class="c1">// 包含打开库的函数的声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#ifndef __cpluscplus
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// !__cpluscplus
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
@@ -426,12 +448,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> void lua_pushnil (lua_State *L);
-</span></span><span class="line"><span class="cl"> void lua_pushboolean (lua_State *L, int bool);
-</span></span><span class="line"><span class="cl"> void lua_pushnumber (lua_State *L, lua_Number n);
-</span></span><span class="line"><span class="cl"> void lua_pushinteger (lua_State *L, lua_Integer n);
-</span></span><span class="line"><span class="cl"> void lua_pushlstring (lua_State *L, const char *s, size_t len);
-</span></span><span class="line"><span class="cl"> void lua_pushstring (lua_State *L, const char *s);
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="n">void</span> <span class="n">lua_pushnil</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">void</span> <span class="n">lua_pushboolean</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="ne">int</span> <span class="ne">bool</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">void</span> <span class="n">lua_pushnumber</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="n">lua_Number</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">void</span> <span class="n">lua_pushinteger</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="n">lua_Integer</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">void</span> <span class="n">lua_pushlstring</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">void</span> <span class="n">lua_pushstring</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>向栈中压入元素前要保证stack中至少有20个空位（slots）,在lua.h中定义了这个常量宏：LUA_MINSTACK；
@@ -521,15 +543,15 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">LUA_API</span> <span class="kt">void</span> <span class="nf">lua_rotate</span> <span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">StkId</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">lua_lock</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">lua_lock</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="n">t</span> <span class="o">=</span> <span class="n">L</span><span class="o">-&gt;</span><span class="n">top</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>  <span class="cm">/* end of stack segment being rotated */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">p</span> <span class="o">=</span> <span class="n">index2stack</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">idx</span><span class="p">);</span>  <span class="cm">/* start of segment */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">api_check</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="nl">n</span> <span class="p">:</span> <span class="o">-</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#34;invalid &#39;n&#39;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">p</span> <span class="o">=</span> <span class="nf">index2stack</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">idx</span><span class="p">);</span>  <span class="cm">/* start of segment */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">api_check</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="nl">n</span> <span class="p">:</span> <span class="o">-</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#34;invalid &#39;n&#39;&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">t</span> <span class="o">-</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">p</span> <span class="o">-</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>  <span class="cm">/* end of prefix */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">reverse</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>  <span class="cm">/* reverse the prefix with length &#39;n&#39; */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">reverse</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>  <span class="cm">/* reverse the suffix */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">reverse</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>  <span class="cm">/* reverse the entire segment */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">lua_unlock</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">reverse</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>  <span class="cm">/* reverse the prefix with length &#39;n&#39; */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">reverse</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>  <span class="cm">/* reverse the suffix */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">reverse</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>  <span class="cm">/* reverse the entire segment */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">lua_unlock</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -696,33 +718,33 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="n">dumpStack</span><span class="p">(</span><span class="n">lua_State</span><span class="o">*</span> <span class="n">L</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">dumpStack</span><span class="p">(</span><span class="n">lua_State</span><span class="o">*</span> <span class="n">L</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="n">lua_gettop</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">lua_type</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="nf">lua_gettop</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="nf">lua_type</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">LUA_TBOOLEAN</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">lua_toboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">?</span> <span class="s">&#34;true&#34;</span> <span class="o">:</span> <span class="s">&#34;false&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nf">lua_toboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">?</span> <span class="s">&#34;true&#34;</span> <span class="o">:</span> <span class="s">&#34;false&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">LUA_TSTRING</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">lua_tostring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nf">lua_tostring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">LUA_TNUMBER</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">lua_isinteger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lua_tointeger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nf">lua_isinteger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">lua_tointeger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lua_tonumber</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">lua_tonumber</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lua_typename</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">lua_typename</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
@@ -730,106 +752,106 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="n">class</span> <span class="n">SmartLuaState</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="nl">public</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">SmartLuaState</span><span class="p">(</span><span class="n">lua_State</span><span class="o">*</span> <span class="n">LL</span><span class="o">=</span><span class="n">nullptr</span><span class="p">)</span><span class="o">:</span><span class="n">L</span><span class="p">(</span><span class="n">LL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">SmartLuaState</span><span class="p">(</span><span class="n">lua_State</span><span class="o">*</span> <span class="n">LL</span><span class="o">=</span><span class="n">nullptr</span><span class="p">)</span><span class="o">:</span><span class="nf">L</span><span class="p">(</span><span class="n">LL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">SmartLuaState</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="nf">SmartLuaState</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">L</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;close lua_State&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">lua_close</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">lua_close</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">pushnil</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">pushnil</span><span class="p">()</span> 
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lua_pushnil</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">lua_pushnil</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">pushboolean</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">pushboolean</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lua_pushboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">lua_pushboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">pushstring</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">pushstring</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lua_pushstring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">lua_pushstring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lua_State</span><span class="o">*</span> <span class="n">get_state</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lua_State</span><span class="o">*</span> <span class="nf">get_state</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">L</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">dumpStack</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">dumpStack</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">rotate</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lua_rotate</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">lua_rotate</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lua_insert</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">lua_insert</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="nl">private</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">lua_State</span><span class="o">*</span> <span class="n">L</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">SmartLuaState</span><span class="o">::</span> <span class="n">dumpStack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">SmartLuaState</span><span class="o">::</span> <span class="nf">dumpStack</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;values of stack&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="n">lua_gettop</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="nf">lua_gettop</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">lua_type</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="nf">lua_type</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">LUA_TBOOLEAN</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">lua_toboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">?</span> <span class="s">&#34;true&#34;</span> <span class="o">:</span> <span class="s">&#34;false&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nf">lua_toboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">?</span> <span class="s">&#34;true&#34;</span> <span class="o">:</span> <span class="s">&#34;false&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">LUA_TSTRING</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">lua_tostring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nf">lua_tostring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">LUA_TNUMBER</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">lua_isinteger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lua_tointeger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nf">lua_isinteger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">lua_tointeger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lua_tonumber</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">lua_tonumber</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lua_typename</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">lua_typename</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="n">test1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">SmartLuaState</span> <span class="n">smt</span> <span class="o">=</span> <span class="n">SmartLuaState</span><span class="p">(</span><span class="n">luaL_newstate</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lua_State</span><span class="o">*</span> <span class="n">L</span> <span class="o">=</span> <span class="n">smt</span><span class="p">.</span><span class="n">get_state</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lua_pushboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lua_pushnumber</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lua_pushnil</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lua_pushstring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dumpStack</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SmartLuaState</span> <span class="n">smt</span> <span class="o">=</span> <span class="nf">SmartLuaState</span><span class="p">(</span><span class="nf">luaL_newstate</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lua_State</span><span class="o">*</span> <span class="n">L</span> <span class="o">=</span> <span class="n">smt</span><span class="p">.</span><span class="nf">get_state</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lua_pushboolean</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lua_pushnumber</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lua_pushnil</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lua_pushstring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">dumpStack</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--- hello lua -- &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">smt</span><span class="p">.</span><span class="n">dumpStack</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">smt</span><span class="p">.</span><span class="nf">dumpStack</span><span class="p">();</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="n">test2</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">()</span> 
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">SmartLuaState</span> <span class="n">state</span> <span class="o">=</span> <span class="n">SmartLuaState</span><span class="p">(</span><span class="n">luaL_newstate</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">pushstring</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">pushstring</span><span class="p">(</span><span class="s">&#34;b&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">pushstring</span><span class="p">(</span><span class="s">&#34;c&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">pushstring</span><span class="p">(</span><span class="s">&#34;d&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">dumpStack</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SmartLuaState</span> <span class="n">state</span> <span class="o">=</span> <span class="nf">SmartLuaState</span><span class="p">(</span><span class="nf">luaL_newstate</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="nf">pushstring</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="nf">pushstring</span><span class="p">(</span><span class="s">&#34;b&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="nf">pushstring</span><span class="p">(</span><span class="s">&#34;c&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="nf">pushstring</span><span class="p">(</span><span class="s">&#34;d&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="nf">dumpStack</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="nf">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//state.insert(2);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">state</span><span class="p">.</span><span class="n">dumpStack</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">state</span><span class="p">.</span><span class="nf">dumpStack</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//state.rotate(2, -1);   
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// test1();
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">test2</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">test2</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -951,7 +973,7 @@
     
         
     <script src="https://utteranc.es/client.js" 
-        repo="tbyouth/tbyouth.github.io"
+        repo="Leo-Bliss/Leo.github.io"
         issue-term="url"
         
         label="comments"
@@ -998,7 +1020,9 @@
     <section class="copyright">
         &copy; 
         
-        2022 tbyouth
+            2022 - 
+        
+        2024 Leo
     </section>
     
     <section class="powerby">

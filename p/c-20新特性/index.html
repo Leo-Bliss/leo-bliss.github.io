@@ -4,17 +4,20 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='语法层面新特性 char8_ t 三路比较运算符：&amp;lt;=&amp;gt; lambda表达式使用[=]将无法隐式捕获this,需要[=, this]进行显示捕获 范围for循环可初始化： 1 2 3 4 5 std::vector&amp;lt;int&amp;gt; data{ 1, 2,3 }; for (auto vec = data; auto v : vec) { std::cout &amp;lt;&amp;lt; v &amp;lt;&amp;lt; std::endl; } module(文件后缀为.ixx, import不要忘记加;):
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 // module_test.ixx export module hellocpp20; import &amp;lt;iostream&amp;gt;; using namespace std; export void hello() { cout &amp;lt;&amp;lt; &amp;#34;hello cpp20! \n&amp;#34;; } // main.'><title>c&#43;&#43;20新特性</title>
 
-<link rel='canonical' href='https://tbyouth.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/'>
+<link rel='canonical' href='https://Leo.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='c&#43;&#43;20新特性'>
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='c&#43;&#43;20新特性'>
 <meta property='og:description' content='语法层面新特性 char8_ t 三路比较运算符：&amp;lt;=&amp;gt; lambda表达式使用[=]将无法隐式捕获this,需要[=, this]进行显示捕获 范围for循环可初始化： 1 2 3 4 5 std::vector&amp;lt;int&amp;gt; data{ 1, 2,3 }; for (auto vec = data; auto v : vec) { std::cout &amp;lt;&amp;lt; v &amp;lt;&amp;lt; std::endl; } module(文件后缀为.ixx, import不要忘记加;):
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 // module_test.ixx export module hellocpp20; import &amp;lt;iostream&amp;gt;; using namespace std; export void hello() { cout &amp;lt;&amp;lt; &amp;#34;hello cpp20! \n&amp;#34;; } // main.'>
-<meta property='og:url' content='https://tbyouth.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/'>
-<meta property='og:site_name' content='tbyouth'>
+<meta property='og:url' content='https://Leo.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/'>
+<meta property='og:site_name' content='Leo'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-09-15T12:09:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-15T12:09:00&#43;08:00'/>
 <meta name="twitter:title" content="c&#43;&#43;20新特性">
 <meta name="twitter:description" content="语法层面新特性 char8_ t 三路比较运算符：&amp;lt;=&amp;gt; lambda表达式使用[=]将无法隐式捕获this,需要[=, this]进行显示捕获 范围for循环可初始化： 1 2 3 4 5 std::vector&amp;lt;int&amp;gt; data{ 1, 2,3 }; for (auto vec = data; auto v : vec) { std::cout &amp;lt;&amp;lt; v &amp;lt;&amp;lt; std::endl; } module(文件后缀为.ixx, import不要忘记加;):
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 // module_test.ixx export module hellocpp20; import &amp;lt;iostream&amp;gt;; using namespace std; export void hello() { cout &amp;lt;&amp;lt; &amp;#34;hello cpp20! \n&amp;#34;; } // main.">
+  
+
+
     </head>
     <body class="
     article-page
@@ -69,14 +72,14 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">tbyouth</a></h1>
+            <h1 class="site-name"><a href="/">Leo</a></h1>
             <h2 class="site-description">Keep learning keep coding</h2>
         </div>
     </header><ol class="social-menu">
             
                 <li>
                     <a 
-                        href='https://github.com/tbyouth'
+                        href='https://github.com/Leo-Bliss'
                         target="_blank"
                         title="GitHub"
                     >
@@ -200,6 +203,25 @@
         
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://Leo.github.io/" selected></option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -442,6 +464,19 @@
             
                 
 <article class="">
+    <a href="/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">bool类型vector存在的问题以及替代方案</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/">
         
         
@@ -492,19 +527,6 @@
 </article>
 
             
-                
-<article class="">
-    <a href="/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">c&#43;&#43;11新特性</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -513,7 +535,7 @@
     
         
     <script src="https://utteranc.es/client.js" 
-        repo="tbyouth/tbyouth.github.io"
+        repo="Leo-Bliss/Leo.github.io"
         issue-term="url"
         
         label="comments"
@@ -560,7 +582,9 @@
     <section class="copyright">
         &copy; 
         
-        2022 tbyouth
+            2022 - 
+        
+        2024 Leo
     </section>
     
     <section class="powerby">

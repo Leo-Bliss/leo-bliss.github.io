@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Algorithm on tbyouth</title>
-        <link>https://tbyouth.github.io/categories/algorithm/</link>
-        <description>Recent content in Algorithm on tbyouth</description>
+        <title>Algorithm on Leo</title>
+        <link>https://Leo.github.io/categories/algorithm/</link>
+        <description>Recent content in Algorithm on Leo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 21 Sep 2022 23:36:00 +0800</lastBuildDate><atom:link href="https://tbyouth.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 21 Sep 2022 23:36:00 +0800</lastBuildDate><atom:link href="https://Leo.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>洗牌和全排列的联系</title>
-        <link>https://tbyouth.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</link>
+        <link>https://Leo.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</link>
         <pubDate>Wed, 21 Sep 2022 23:36:00 +0800</pubDate>
         
-        <guid>https://tbyouth.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</guid>
+        <guid>https://Leo.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</guid>
         <description>&lt;h2 id=&#34;洗牌算法&#34;&gt;洗牌算法&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;假设有&lt;code&gt;n&lt;/code&gt;个元素的序列，要对它们&lt;code&gt;shuffle&lt;/code&gt;&lt;/p&gt;
@@ -223,10 +223,10 @@ $$
         </item>
         <item>
         <title>画线算法</title>
-        <link>https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</link>
+        <link>https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</link>
         <pubDate>Sun, 18 Sep 2022 22:19:00 +0800</pubDate>
         
-        <guid>https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</guid>
+        <guid>https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</guid>
         <description>&lt;h1 id=&#34;画线算法&#34;&gt;画线算法&lt;/h1&gt;
 &lt;h2 id=&#34;简单的画线算法&#34;&gt;简单的画线算法&lt;/h2&gt;
 &lt;p&gt;根据直线方程两点式：&lt;/p&gt;
@@ -235,7 +235,7 @@ $$
 $$
 那么有：
 $$
-x = t * (x_1 - x_0) + x_0 = (1- t) * x_0 + x_1 \ 
+x = t * (x_1 - x_0) + x_0 = (1- t) * x_0 + x_1 \
 y = t * (y_1 - y_0) + y_0 = (1- t) * y_0 + y_1
 $$&lt;/p&gt;
 &lt;p&gt;则画线的算法代码为：&lt;/p&gt;
@@ -266,10 +266,10 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;上述代码绘制效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925.png&#34;
 	width=&#34;295&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220915182347925&#34;
@@ -281,10 +281,10 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;当&lt;code&gt;dt = 0.1&lt;/code&gt;时，画出的却是一些离散的点：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865.png&#34;
 	width=&#34;297&#34;
 	height=&#34;300&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220915182710865&#34;
@@ -349,10 +349,10 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;white&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627.png&#34;
 	width=&#34;297&#34;
 	height=&#34;300&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220915225521627&#34;
@@ -454,7 +454,7 @@ $$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;我们从直线截距式来看：
 $$
-y = kx + b \ 
+y = kx + b \
 同时有：x = (y-b) / k
 $$&lt;/p&gt;
 &lt;p&gt;很明显有：&lt;/p&gt;
@@ -500,10 +500,10 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;上述代码绘制结果：&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306.png&#34;
+&lt;/div&gt;&lt;p&gt;上述代码绘制结果：&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306.png&#34;
 	width=&#34;300&#34;
 	height=&#34;300&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220916115757306&#34;
@@ -554,10 +554,10 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;绘制效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585.png&#34;
 	width=&#34;296&#34;
 	height=&#34;298&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220916132718585&#34;
@@ -726,7 +726,7 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;$d &amp;lt; 0$ , 取$(x_i + 1, y_i + 1)$, 那下一个判别项：
 $$
-d = f(x_i + 2, y_i + 1.5) = y_i + 1.5 - k(x_i + 2) - b 
+d = f(x_i + 2, y_i + 1.5) = y_i + 1.5 - k(x_i + 2) - b
 = y_i + 0.5 - k(x_i + 1) - b + 1 - k  = d - k + 1
 $$&lt;/p&gt;
 &lt;/li&gt;
@@ -885,10 +885,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;不使用中点，而是直接使用交点：以直线&lt;strong&gt;与每个像素格子的交点&lt;/strong&gt; 和 &lt;strong&gt;相交像素格子右下角点&lt;/strong&gt; 的距离 作为判别项$d$。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964.png&#34;
 	width=&#34;1081&#34;
 	height=&#34;458&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220916180517964&#34;
@@ -899,10 +899,10 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;566px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872.png&#34;
 	width=&#34;891&#34;
 	height=&#34;520&#34;
-	srcset=&#34;https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_480x0_resize_box_3.png 480w, https://tbyouth.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_480x0_resize_box_3.png 480w, https://Leo.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20220916180648872&#34;
