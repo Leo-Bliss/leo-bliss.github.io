@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-    <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='thread 基础概念：
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='thread 基础概念：
 并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。
 并行：多个处理器同一时间点上同时执行任务。 不抢占资源。
 临界资源： 在一段时间内仅允许一个进程访问的资源。比如打印机，各个进程采用互斥的方式实现对资源的共享，
@@ -12,12 +9,8 @@
 解决死锁：
 多个互斥量，保存相同的上锁顺序
 当多个互斥量时，使用std::lock()进行上锁，这个接口使得上锁顺序无关：std::lock(mtx1, mtx2), 还是记住需要手动解锁， 可配合std::lock_guard避免手动解锁：
-1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数'><title>c&#43;&#43;多线程总结</title>
-
-<link rel='canonical' href='https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/'>
-
-<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='c&#43;&#43;多线程总结'>
-<meta property='og:description' content='thread 基础概念：
+1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数'><title>c++多线程总结</title>
+<link rel=canonical href=https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/><link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property='og:title' content='c++多线程总结'><meta property='og:description' content='thread 基础概念：
 并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。
 并行：多个处理器同一时间点上同时执行任务。 不抢占资源。
 临界资源： 在一段时间内仅允许一个进程访问的资源。比如打印机，各个进程采用互斥的方式实现对资源的共享，
@@ -28,12 +21,7 @@
 解决死锁：
 多个互斥量，保存相同的上锁顺序
 当多个互斥量时，使用std::lock()进行上锁，这个接口使得上锁顺序无关：std::lock(mtx1, mtx2), 还是记住需要手动解锁， 可配合std::lock_guard避免手动解锁：
-1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数'>
-<meta property='og:url' content='https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/'>
-<meta property='og:site_name' content='Leo'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='多线程' /><meta property='article:published_time' content='2022-08-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-31T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="c&#43;&#43;多线程总结">
-<meta name="twitter:description" content="thread 基础概念：
+1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数'><meta property='og:url' content='https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/'><meta property='og:site_name' content='Leo'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='多线程'><meta property='article:published_time' content='2022-08-31T00:00:00+00:00'><meta property='article:modified_time' content='2022-08-31T00:00:00+00:00'><meta name=twitter:title content="c++多线程总结"><meta name=twitter:description content="thread 基础概念：
 并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。
 并行：多个处理器同一时间点上同时执行任务。 不抢占资源。
 临界资源： 在一段时间内仅允许一个进程访问的资源。比如打印机，各个进程采用互斥的方式实现对资源的共享，
@@ -44,1059 +32,207 @@
 解决死锁：
 多个互斥量，保存相同的上锁顺序
 当多个互斥量时，使用std::lock()进行上锁，这个接口使得上锁顺序无关：std::lock(mtx1, mtx2), 还是记住需要手动解锁， 可配合std::lock_guard避免手动解锁：
-1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数">
-  
-
-
-    </head>
-    <body class="
-    article-page
-    ">
-    <script>
-        (function() {
-            const colorSchemeKey = 'StackColorScheme';
-            if(!localStorage.getItem(colorSchemeKey)){
-                localStorage.setItem(colorSchemeKey, "dark");
-            }
-        })();
-    </script><script>
-    (function() {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
-
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
-        }
-    })();
-</script>
-<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
-
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu1a26190bbdbdf12368ddc85eaf2d8ae2_58950_300x0_resize_q75_box.jpg" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">Leo</a></h1>
-            <h2 class="site-description">Keep learning keep coding</h2>
-        </div>
-    </header><ol class="social-menu">
-            
-                <li>
-                    <a 
-                        href='https://github.com/Leo-Bliss'
-                        target="_blank"
-                        title="GitHub"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
-
-
-
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-
-        <li >
-            <a href='/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg>
-
-
-
-                
-                <span>主页</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/%E5%85%B3%E4%BA%8E/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
-
-
-
-                
-                <span>关于</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>归档</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>搜索</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/%E5%8F%8B%E9%93%BE/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
-  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
-</svg>
-
-
-
-                
-                <span>友链</span>
-            </a>
-        </li>
-        
-
-        <div class="menu-bottom-section">
-                <li id="i18n-switch">  
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
-                        
-                            <option value="https://leo-bliss.github.io/" selected></option>
-                        
-                    </select>
-                </li>
-            
-            
-            
-                <li id="dark-mode-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                    <span>暗色模式</span>
-                </li>
-            
-        </div>
-    </ol>
-</aside>
-<main class="main full-width">
-    <article class="main-article">
-    <header class="article-header">
-
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/c&#43;&#43;/" >
-                C&#43;&#43;
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/">c&#43;&#43;多线程总结</a>
-        </h2>
-    
-        
-    </div>
-
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Aug 31, 2022</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    阅读时长: 2 分钟
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
-</div>
-</header>
-
-    <section class="article-content">
-    
-    
-    <h2 id="thread">thread</h2>
-<p>基础概念：</p>
-<ul>
-<li>
-<p>并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。</p>
-</li>
-<li>
-<p>并行：多个处理器同一时间点上同时执行任务。 不抢占资源。</p>
-</li>
-<li>
-<p>临界资源： 在一段时间内仅允许一个进程访问的资源。比如打印机，各个进程采用互斥的方式实现对资源的共享，</p>
-</li>
-<li>
-<p>临界区： 每个进程访问临界资源的那段代码和共享变量有关的程序段。</p>
-</li>
-</ul>
-<h3 id="并发的实现方式">并发的实现方式</h3>
-<ul>
-<li>通过多个进程实现并发</li>
-<li>通过创建多个线程实现并发</li>
-</ul>
-<h4 id="进程间通信">进程间通信</h4>
-<ul>
-<li>同一电脑： 管道，共享内存，文件， 消息队列</li>
-<li>不同电脑： socket通信</li>
-</ul>
-<h4 id="线程间通信">线程间通信</h4>
-<ul>
-<li>共享内存，比如使用全局变量</li>
-<li>共享数据分析：
-<ul>
-<li>只读数据：它是安全的稳定的，直接读即可；</li>
-<li>有读有写：不安全，最简单处理：读写互斥</li>
-</ul>
-</li>
-</ul>
-<h4 id="死锁">死锁</h4>
-<blockquote>
-<p>只有至少有两把锁才可能出现死锁</p>
-</blockquote>
-<ul>
-<li>
-<p>描述：1持有A，想要B；2持有B，想要A。导致1,2无法继续执行的僵持状态</p>
-</li>
-<li>
-<p>互斥量：用于多线程编程种保护共享数据</p>
-</li>
-<li>
-<p>解决死锁：</p>
-<ul>
-<li>
-<p>多个互斥量，保存相同的上锁顺序</p>
-</li>
-<li>
-<p>当多个互斥量时，使用<code>std::lock()</code>进行上锁，这个接口使得上锁顺序无关：<code>std::lock(mtx1, mtx2)</code>, 还是记住需要手动解锁， 可配合<code>std::lock_guard</code>避免手动解锁：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">lock</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">);</span>  <span class="c1">// 一次性锁多个
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">adopt_lock</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">adopt_lock</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-</ul>
-<h3 id="api">API</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kr">thread</span> <span class="nf">t</span><span class="p">(</span><span class="n">func</span><span class="p">);</span> <span class="c1">// 传入一个可调用对象: 函数对象，lambda函数， 仿函数等
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span> <span class="c1">// 阻塞主线程 等子线程执行完后与主线程汇合
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">t</span><span class="p">.</span><span class="n">deatch</span><span class="p">();</span> <span class="c1">// 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>一般不需要关心或者控制子线程的执行时就调用<code>detach</code></li>
-<li>使用<code>detach</code>时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象</li>
-<li>尽可能不使用<code>detach</code></li>
-<li>明确往线程对象入口函数参数指定需要传入<strong>真引用</strong>则必须使用<code>std::ref</code>，否则都是默认拷贝，但是传真引用只有使用<code>join</code>才是安全的</li>
-</ul>
-<h4 id="lock_guard">lock_guard</h4>
-<ul>
-<li><code>std::lock_gurad&lt;std::mutex&gt; lock(mtx, std::adopt_lock)</code>, <code>std::adopt_lock</code>适应之前mtx已经了lock，从而不再lock</li>
-</ul>
-<h4 id="unique_lock">unique_lock</h4>
-<ul>
-<li>
-<p>可以完全取代<code>lock_guard</code>, 而且更灵活，但是占有更多空间，相比<code>std::adopt_lock</code>还有其他参数</p>
-</li>
-<li>
-<p><code>std::try_to_lock</code>:尝试用<code>mutex</code>的<code>lock()</code>去锁定<code>mutex</code>， 如果没有锁成功也立即返回不会阻塞，但需要注意std::try_to_lock之前不能手动调用<code>mutex</code>的<code>lock()</code>否则会卡死。<code>unique_lock</code>对象成员函数<code>owns_lock() </code>可以 判断有没有拿到锁</p>
-</li>
-<li>
-<p><code>std::defer_lock</code>: 初始化一个没有加锁的<code>mutex</code>， 使用前提也是不能对传入的<code>mutex</code>对象<code>lock()</code>，否则报异常。</p>
-</li>
-<li>
-<p>成员函数：</p>
-<ul>
-<li><code>lock()</code></li>
-<li><code>unlock</code>()：虽然会自动加锁解锁，但是提供lock和unlock是为了临时解锁处理一些非共享代码</li>
-<li><code>try_lock</code>(): return true or false</li>
-<li><code>release()</code>:释放管理的<code>mutex</code>的所有权，返回之前管理的<code>mutex</code>对象的指针，之后需要我们自己负责<code>mutex</code>对象的unlock</li>
-</ul>
-</li>
-<li>
-<p><code>unique_lock</code>对象所有权转移方法：使用std::move； 通过一个函数作为临时对象返回；</p>
-</li>
-</ul>
-<h4 id="条件变量">条件变量</h4>
-<ul>
-<li><code>std::condition_variable</code>:需要结合互斥量进行使用</li>
-<li><code>wait</code>():
-<ul>
-<li>
-<p>第一个参数为互斥量对象</p>
-</li>
-<li>
-<p>没有第二个参数，则解锁互斥量，当前线程执行阻塞到本行，直到其他线程notify_one；</p>
-</li>
-<li>
-<p>如果第二个参数为lambda，若lambda返回true则wait直接返回继续执行，否则解锁互斥量，阻塞到本行，直到被notify_one</p>
-</li>
-<li>
-<p>当被唤醒时： 重新尝试对互斥量加锁，直到加锁成功后继续往下执行</p>
-</li>
-<li>
-<p>虚假唤醒：即使没有notify该线程也有概率会唤醒，处理：wait中要第二个参数（lambda）并正确判断要处理的共享数据是否存在</p>
-</li>
-<li>
-<p>有可能出现一个线程还没走到wait时，notify消息就发送了，此时后面就可能导致盲目等待了，所以执行wait需要判断一些条件</p>
-</li>
-<li>
-<p><code>notify_one</code>():尝试把wait的线程唤醒</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="future">future</h3>
-<ul>
-<li>
-<p><code>vaild()</code>: 判断值是否有效</p>
-</li>
-<li>
-<p><code>share()</code>: 用于future对象构造shared_future，比如<code>std::shared_future sf(f.share());</code></p>
-</li>
-<li>
-<p>future_status</p>
-<ul>
-<li>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">pass</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-<li>
-<p><code>shared_future</code>: 用于多个线程获取future数据，由于普通future对象只支持get一次，<code>std::shared_future&lt;int&gt; sf = std::thread([]{return 1;});</code></p>
-</li>
-</ul>
-<h4 id="atomic">atomic</h4>
-<ul>
-<li>原子操作概念：不可分割的操作，要么完成要么未完成， 不可能出现中间状态。在多线程种不会被打断的程序执行片段。 效率上比互斥量更高。适用于一个变量而不是一个代码段。能用原子操作就不用互斥量；一般针对<code>++, --, +=, -=</code>操作符，其他的不一定支持原子操作，比如<code>x = x + 1</code>不支持原子操作。</li>
-<li><code>load()</code>原子方式读取值，没有拷贝构造和赋值操作符， 可以这样进行复制：<code>std::atomic&lt;int&gt; m2(m1.load())</code>;</li>
-<li><code>store(v)</code>原子方式写入值，<code>std::atomic&lt;int&gt;m1 = 0; m1.store(1);</code></li>
-</ul>
-<h4 id="async">async</h4>
-<blockquote>
-<p>用于创建异步任务</p>
-</blockquote>
-<ul>
-<li>
-<p>第一个标志参数指定<code>std::launch::async</code>：<strong>强制</strong>异步任务在<strong>新线程中执行</strong>， 当future对象调用get或者wait时执行</p>
-</li>
-<li>
-<p>当第一个标志参数使用<code>std::launch::deferred</code>：不会创建新线程，会到主线程中执行，如果future没有get或者wait将不执行</p>
-</li>
-<li>
-<p>当第一个标志参数为<code>std::launch::async | std::launch::deferred </code>,<strong>由系统评估选择其一执行</strong>，当第一个参数不传入标志参数时，<strong>默认就是这种参数</strong>。</p>
-</li>
-<li>
-<p>当系统资源紧张的时候，使用<code>std::thread</code>可能创建线程失败，出现程序奔溃</p>
-</li>
-<li>
-<p>相比<code>std::thread</code>,<code>std::async</code>获取入口参数返回值更简单，由于可以默认由系统决定是否创建新线程，在资源紧张情况下，这种方式也更安全</p>
-</li>
-<li>
-<p>经验： 一个程序不宜超过100-200个线程</p>
-</li>
-<li>
-<p>当为默认标志参数时，系统采用的策略（<code>std::launch::async</code> ，<code>std::launch::deferred</code>）确定：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">async</span><span class="p">([]()</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">			<span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">5000</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">			<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34; async this_thread id &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="mi">1024</span><span class="p">;});</span>
-</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">future_status</span> <span class="n">status</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> 
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">future_status</span><span class="o">::</span><span class="n">deferred</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 延迟执行，由于资源紧张没有创建新线程，将在主线程中执行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;deferred&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//这个时候在主线程中执行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="c1">// 创建了新线程执行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">future_status</span><span class="o">::</span><span class="n">ready</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 线程执行完毕，成功返回
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ready&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">future_status</span><span class="o">::</span><span class="n">timeout</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 线程还在执行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;timeout&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ret</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h4 id="windows下的临界区">windows下的临界区</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
-</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">A</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      	<span class="n">A</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">          <span class="p">{</span>
-</span></span><span class="line"><span class="cl">              <span class="n">InitializeCriticalSection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">_wCS</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">          <span class="p">}</span>
-</span></span><span class="line"><span class="cl">      	<span class="n">CRITICAL_SECTION</span> <span class="n">_wCS</span><span class="p">;</span> <span class="c1">// 相当于std::mutex
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      	<span class="kt">void</span> <span class="nf">pushValue</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">          <span class="p">{</span>
-</span></span><span class="line"><span class="cl">              <span class="n">EnterCriticalSection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">_wCS</span><span class="p">);</span> <span class="c1">// 相当于lock
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="c1">//EnterCriticalSection(&amp;_wCS);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">              <span class="c1">//LeaveCriticalSection(&amp;_wCS);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">LeaveCriticalSection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">_wCS</span><span class="p">);</span> <span class="c1">// unlock
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    	<span class="k">private</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      	<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">WindowsLockGuard</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      	<span class="n">WindowsLockGuard</span><span class="p">(</span><span class="n">CRITICAL_SECTION</span><span class="o">*</span> <span class="n">wcs</span><span class="p">)</span><span class="o">:</span><span class="n">_pCS</span><span class="p">(</span><span class="n">wcs</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">              <span class="n">EnterCriticalSection</span><span class="p">(</span><span class="n">_pCS</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">          <span class="p">}</span>
-</span></span><span class="line"><span class="cl">      	<span class="o">~</span><span class="n">WindowsLockGuard</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">          <span class="p">{</span>
-</span></span><span class="line"><span class="cl">              <span class="n">LeaveCriticalSection</span><span class="p">(</span><span class="n">_pCS</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">          <span class="p">}</span>
-</span></span><span class="line"><span class="cl">      <span class="k">private</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      	<span class="n">CRITICAL_SECTION</span><span class="o">*</span> <span class="n">_pCS</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>windows中允许在同一个线程中（不同线程会卡住等待）进入同一个临界区多次, c++11不允许在同一线程中lock普通互斥量多次，否则报异常；</li>
-</ul>
-<h4 id="recursive_mutex">recursive_mutex</h4>
-<ul>
-<li>允许在同一线程中同一个递归互斥量多次lock</li>
-<li>一般使用它是代码设计的不太好，使用后需要考虑是否有优化空间，使得只lock一次</li>
-</ul>
-<h4 id="带超时的互斥量">带超时的互斥量</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">timed_mutex</span> <span class="n">t_mtx</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">recursive_timed_mutex</span> <span class="n">rt_mtx</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">t_mtx</span><span class="p">.</span><span class="n">try_lock_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="c1">// 尝试等待2s 获取锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// 保护内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">t_mtx</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">else</span> <span class="c1">// 普通mutex没拿到锁会阻塞，没法走下这里
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// 没有拿到锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 可以处理不需要保护内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">// 直到某个时间点获取锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">t_mtx</span><span class="p">.</span><span class="n">try_lock_until</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">else</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
-</section>
-
-
-    <footer class="article-footer">
-    
-    <section class="article-tags">
-        
-            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-        
-    </section>
-
-
-    
-    <section class="article-copyright">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
-</svg>
-
-
-
-        <span>Licensed under CC BY-NC-SA 4.0</span>
-    </section>
-    </footer>
-
-
-    
-        <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
-            ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
-                defer
-                >
-            </script><script>
-    window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.querySelector(`.article-content`), {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ]
-        });})
-</script>
-    
-</article>
-
-    
-
-    
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">bool类型vector存在的问题以及替代方案</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">vector几种初始化方式</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">正则表达式总结</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">c&#43;&#43;20新特性</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">c&#43;&#43;14新特性</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
-
-     
-    
-        
-    <script src="https://utteranc.es/client.js" 
-        repo="Leo-Bliss/leo-bliss.github.io"
-        issue-term="title"
-        
-        label="comments"
-        
-        crossorigin="anonymous"
-        async
-        >
-</script>
-
-<style>
-    .utterances {
-        max-width: unset;
-    }
-</style>
-
-<script>
-    function setUtterancesTheme(theme) {
-        let utterances = document.querySelector('.utterances iframe');
-        if (utterances) {
-            utterances.contentWindow.postMessage(
-                {
-                    type: 'set-theme',
-                    theme: `github-${theme}`
-                },
-                'https://utteranc.es'
-            );
-        }
-    }
-
-    addEventListener('message', event => {
-        if (event.origin !== 'https://utteranc.es') return;
-        setUtterancesTheme(document.documentElement.dataset.scheme)
-    });
-
-    window.addEventListener('onColorSchemeChange', (e) => {
-        setUtterancesTheme(e.detail)
-    })
-</script>
-
-
-    
-
-    <footer class="site-footer">
-    <section class="copyright">
-        &copy; 
-        
-            2022 - 
-        
-        2024 Leo
-    </section>
-    
-    <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
-    </section>
-</footer>
-
-
-    
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-            </main>
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#thread">thread</a>
-      <ol>
-        <li><a href="#并发的实现方式">并发的实现方式</a>
-          <ol>
-            <li><a href="#进程间通信">进程间通信</a></li>
-            <li><a href="#线程间通信">线程间通信</a></li>
-            <li><a href="#死锁">死锁</a></li>
-          </ol>
-        </li>
-        <li><a href="#api">API</a>
-          <ol>
-            <li><a href="#lock_guard">lock_guard</a></li>
-            <li><a href="#unique_lock">unique_lock</a></li>
-            <li><a href="#条件变量">条件变量</a></li>
-          </ol>
-        </li>
-        <li><a href="#future">future</a>
-          <ol>
-            <li><a href="#atomic">atomic</a></li>
-            <li><a href="#async">async</a></li>
-            <li><a href="#windows下的临界区">windows下的临界区</a></li>
-            <li><a href="#recursive_mutex">recursive_mutex</a></li>
-            <li><a href="#带超时的互斥量">带超时的互斥量</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
-
-        </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
-
-    </body>
-</html>
+1 2 3 std::lock(m1, m2); // 一次性锁多个 std::lock_guard&amp;lt;std::mutex&amp;gt;(m1, std::adopt_lock); std::lock_guard&amp;lt;std::mutex&amp;gt;(m2, std::adopt_lock); API 1 2 3 thread t(func); // 传入一个可调用对象: 函数对象，lambda函数， 仿函数等 t.join(); // 阻塞主线程 等子线程执行完后与主线程汇合 t.deatch(); // 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理 一般不需要关心或者控制子线程的执行时就调用detach 使用detach时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象 尽可能不使用detach 明确往线程对象入口函数参数指定需要传入真引用则必须使用std::ref，否则都是默认拷贝，但是传真引用只有使用join才是安全的 lock_guard std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock), std::adopt_lock适应之前mtx已经了lock，从而不再lock unique_lock 可以完全取代lock_guard, 而且更灵活，但是占有更多空间，相比std::adopt_lock还有其他参数"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu1a26190bbdbdf12368ddc85eaf2d8ae2_58950_300x0_resize_q75_box.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Leo</a></h1><h2 class=site-description>Keep learning keep coding</h2></div></header><ol class=social-menu><li><a href=https://github.com/Leo-Bliss target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><div class=menu-bottom-section><li id=i18n-switch><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://leo-bliss.github.io/ selected></option></select></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></div></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/c++/>C++</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/>c++多线程总结</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Aug 31, 2022</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 2 分钟</time></div></footer></div></header><section class=article-content><h2 id=thread>thread</h2><p>基础概念：</p><ul><li><p>并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。</p></li><li><p>并行：多个处理器同一时间点上同时执行任务。 不抢占资源。</p></li><li><p>临界资源： 在一段时间内仅允许一个进程访问的资源。比如打印机，各个进程采用互斥的方式实现对资源的共享，</p></li><li><p>临界区： 每个进程访问临界资源的那段代码和共享变量有关的程序段。</p></li></ul><h3 id=并发的实现方式>并发的实现方式</h3><ul><li>通过多个进程实现并发</li><li>通过创建多个线程实现并发</li></ul><h4 id=进程间通信>进程间通信</h4><ul><li>同一电脑： 管道，共享内存，文件， 消息队列</li><li>不同电脑： socket通信</li></ul><h4 id=线程间通信>线程间通信</h4><ul><li>共享内存，比如使用全局变量</li><li>共享数据分析：<ul><li>只读数据：它是安全的稳定的，直接读即可；</li><li>有读有写：不安全，最简单处理：读写互斥</li></ul></li></ul><h4 id=死锁>死锁</h4><blockquote><p>只有至少有两把锁才可能出现死锁</p></blockquote><ul><li><p>描述：1持有A，想要B；2持有B，想要A。导致1,2无法继续执行的僵持状态</p></li><li><p>互斥量：用于多线程编程种保护共享数据</p></li><li><p>解决死锁：</p><ul><li><p>多个互斥量，保存相同的上锁顺序</p></li><li><p>当多个互斥量时，使用<code>std::lock()</code>进行上锁，这个接口使得上锁顺序无关：<code>std::lock(mtx1, mtx2)</code>, 还是记住需要手动解锁， 可配合<code>std::lock_guard</code>避免手动解锁：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>std</span><span class=o>::</span><span class=n>lock</span><span class=p>(</span><span class=n>m1</span><span class=p>,</span> <span class=n>m2</span><span class=p>);</span>  <span class=c1>// 一次性锁多个
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>std</span><span class=o>::</span><span class=n>lock_guard</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>mutex</span><span class=o>&gt;</span><span class=p>(</span><span class=n>m1</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>adopt_lock</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>std</span><span class=o>::</span><span class=n>lock_guard</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>mutex</span><span class=o>&gt;</span><span class=p>(</span><span class=n>m2</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>adopt_lock</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li></ul><h3 id=api>API</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=kr>thread</span> <span class=nf>t</span><span class=p>(</span><span class=n>func</span><span class=p>);</span> <span class=c1>// 传入一个可调用对象: 函数对象，lambda函数， 仿函数等
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>t</span><span class=p>.</span><span class=n>join</span><span class=p>();</span> <span class=c1>// 阻塞主线程 等子线程执行完后与主线程汇合
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>t</span><span class=p>.</span><span class=n>deatch</span><span class=p>();</span> <span class=c1>// 分离，子线程执行不可控，子线程和主线程各自执行各的，主线程不需要等待， 子线程执行完毕有接管他的运行时库进行清理
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>一般不需要关心或者控制子线程的执行时就调用<code>detach</code></li><li>使用<code>detach</code>时，需要避免线程入口函数的传参隐式类型的转换，防止局部对象失效， 可以显示构造一个临时对象传入避免不安全使用对象</li><li>尽可能不使用<code>detach</code></li><li>明确往线程对象入口函数参数指定需要传入<strong>真引用</strong>则必须使用<code>std::ref</code>，否则都是默认拷贝，但是传真引用只有使用<code>join</code>才是安全的</li></ul><h4 id=lock_guard>lock_guard</h4><ul><li><code>std::lock_gurad&lt;std::mutex> lock(mtx, std::adopt_lock)</code>, <code>std::adopt_lock</code>适应之前mtx已经了lock，从而不再lock</li></ul><h4 id=unique_lock>unique_lock</h4><ul><li><p>可以完全取代<code>lock_guard</code>, 而且更灵活，但是占有更多空间，相比<code>std::adopt_lock</code>还有其他参数</p></li><li><p><code>std::try_to_lock</code>:尝试用<code>mutex</code>的<code>lock()</code>去锁定<code>mutex</code>， 如果没有锁成功也立即返回不会阻塞，但需要注意std::try_to_lock之前不能手动调用<code>mutex</code>的<code>lock()</code>否则会卡死。<code>unique_lock</code>对象成员函数<code>owns_lock() </code>可以 判断有没有拿到锁</p></li><li><p><code>std::defer_lock</code>: 初始化一个没有加锁的<code>mutex</code>， 使用前提也是不能对传入的<code>mutex</code>对象<code>lock()</code>，否则报异常。</p></li><li><p>成员函数：</p><ul><li><code>lock()</code></li><li><code>unlock</code>()：虽然会自动加锁解锁，但是提供lock和unlock是为了临时解锁处理一些非共享代码</li><li><code>try_lock</code>(): return true or false</li><li><code>release()</code>:释放管理的<code>mutex</code>的所有权，返回之前管理的<code>mutex</code>对象的指针，之后需要我们自己负责<code>mutex</code>对象的unlock</li></ul></li><li><p><code>unique_lock</code>对象所有权转移方法：使用std::move； 通过一个函数作为临时对象返回；</p></li></ul><h4 id=条件变量>条件变量</h4><ul><li><code>std::condition_variable</code>:需要结合互斥量进行使用</li><li><code>wait</code>():<ul><li><p>第一个参数为互斥量对象</p></li><li><p>没有第二个参数，则解锁互斥量，当前线程执行阻塞到本行，直到其他线程notify_one；</p></li><li><p>如果第二个参数为lambda，若lambda返回true则wait直接返回继续执行，否则解锁互斥量，阻塞到本行，直到被notify_one</p></li><li><p>当被唤醒时： 重新尝试对互斥量加锁，直到加锁成功后继续往下执行</p></li><li><p>虚假唤醒：即使没有notify该线程也有概率会唤醒，处理：wait中要第二个参数（lambda）并正确判断要处理的共享数据是否存在</p></li><li><p>有可能出现一个线程还没走到wait时，notify消息就发送了，此时后面就可能导致盲目等待了，所以执行wait需要判断一些条件</p></li><li><p><code>notify_one</code>():尝试把wait的线程唤醒</p></li></ul></li></ul><h3 id=future>future</h3><ul><li><p><code>vaild()</code>: 判断值是否有效</p></li><li><p><code>share()</code>: 用于future对象构造shared_future，比如<code>std::shared_future sf(f.share());</code></p></li><li><p>future_status</p><ul><li><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pass</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><code>shared_future</code>: 用于多个线程获取future数据，由于普通future对象只支持get一次，<code>std::shared_future&lt;int> sf = std::thread([]{return 1;});</code></p></li></ul><h4 id=atomic>atomic</h4><ul><li>原子操作概念：不可分割的操作，要么完成要么未完成， 不可能出现中间状态。在多线程种不会被打断的程序执行片段。 效率上比互斥量更高。适用于一个变量而不是一个代码段。能用原子操作就不用互斥量；一般针对<code>++, --, +=, -=</code>操作符，其他的不一定支持原子操作，比如<code>x = x + 1</code>不支持原子操作。</li><li><code>load()</code>原子方式读取值，没有拷贝构造和赋值操作符， 可以这样进行复制：<code>std::atomic&lt;int> m2(m1.load())</code>;</li><li><code>store(v)</code>原子方式写入值，<code>std::atomic&lt;int>m1 = 0; m1.store(1);</code></li></ul><h4 id=async>async</h4><blockquote><p>用于创建异步任务</p></blockquote><ul><li><p>第一个标志参数指定<code>std::launch::async</code>：<strong>强制</strong>异步任务在<strong>新线程中执行</strong>， 当future对象调用get或者wait时执行</p></li><li><p>当第一个标志参数使用<code>std::launch::deferred</code>：不会创建新线程，会到主线程中执行，如果future没有get或者wait将不执行</p></li><li><p>当第一个标志参数为<code>std::launch::async | std::launch::deferred </code>,<strong>由系统评估选择其一执行</strong>，当第一个参数不传入标志参数时，<strong>默认就是这种参数</strong>。</p></li><li><p>当系统资源紧张的时候，使用<code>std::thread</code>可能创建线程失败，出现程序奔溃</p></li><li><p>相比<code>std::thread</code>,<code>std::async</code>获取入口参数返回值更简单，由于可以默认由系统决定是否创建新线程，在资源紧张情况下，这种方式也更安全</p></li><li><p>经验： 一个程序不宜超过100-200个线程</p></li><li><p>当为默认标志参数时，系统采用的策略（<code>std::launch::async</code> ，<code>std::launch::deferred</code>）确定：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>std</span><span class=o>::</span><span class=n>future</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>ret</span> <span class=o>=</span> <span class=n>std</span><span class=o>::</span><span class=n>async</span><span class=p>([]()</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>this_thread</span><span class=o>::</span><span class=n>sleep_for</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>chrono</span><span class=o>::</span><span class=n>milliseconds</span><span class=p>(</span><span class=mi>5000</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>			<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span><span class=s>&#34; async this_thread id &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>this_thread</span><span class=o>::</span><span class=n>get_id</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=mi>1024</span><span class=p>;});</span>
+</span></span><span class=line><span class=cl><span class=n>std</span><span class=o>::</span><span class=n>future_status</span> <span class=n>status</span> <span class=o>=</span> <span class=n>ret</span><span class=p>.</span><span class=n>wait_for</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>chrono</span><span class=o>::</span><span class=n>seconds</span><span class=p>(</span><span class=mi>0</span><span class=p>));</span> 
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=n>status</span> <span class=o>==</span> <span class=n>std</span><span class=o>::</span><span class=n>future_status</span><span class=o>::</span><span class=n>deferred</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 延迟执行，由于资源紧张没有创建新线程，将在主线程中执行
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;deferred&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//这个时候在主线程中执行
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>ret</span><span class=p>.</span><span class=n>get</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>else</span> <span class=c1>// 创建了新线程执行
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>status</span> <span class=o>==</span> <span class=n>std</span><span class=o>::</span><span class=n>future_status</span><span class=o>::</span><span class=n>ready</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 线程执行完毕，成功返回
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;ready&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>ret</span><span class=p>.</span><span class=n>get</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>status</span> <span class=o>==</span> <span class=n>std</span><span class=o>::</span><span class=n>future_status</span><span class=o>::</span><span class=n>timeout</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 线程还在执行
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;timeout&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>ret</span><span class=p>.</span><span class=n>get</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><h4 id=windows下的临界区>windows下的临界区</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl>  <span class=cp>#include</span> <span class=cpf>&lt;windows.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>  <span class=cp>#include</span> <span class=cpf>&lt;vector&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>  
+</span></span><span class=line><span class=cl>  <span class=k>class</span> <span class=nc>A</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      	<span class=n>A</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>              <span class=n>InitializeCriticalSection</span><span class=p>(</span><span class=o>&amp;</span><span class=n>_wCS</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>      	<span class=n>CRITICAL_SECTION</span> <span class=n>_wCS</span><span class=p>;</span> <span class=c1>// 相当于std::mutex
+</span></span></span><span class=line><span class=cl><span class=c1></span>      	<span class=kt>void</span> <span class=nf>pushValue</span><span class=p>(</span><span class=kt>int</span> <span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>              <span class=n>EnterCriticalSection</span><span class=p>(</span><span class=o>&amp;</span><span class=n>_wCS</span><span class=p>);</span> <span class=c1>// 相当于lock
+</span></span></span><span class=line><span class=cl><span class=c1></span>              <span class=c1>//EnterCriticalSection(&amp;_wCS);
+</span></span></span><span class=line><span class=cl><span class=c1></span>              <span class=n>vec</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>v</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>              <span class=c1>//LeaveCriticalSection(&amp;_wCS);
+</span></span></span><span class=line><span class=cl><span class=c1></span>              <span class=n>LeaveCriticalSection</span><span class=p>(</span><span class=o>&amp;</span><span class=n>_wCS</span><span class=p>);</span> <span class=c1>// unlock
+</span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>    	<span class=k>private</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      	<span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>vec</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  <span class=k>class</span> <span class=nc>WindowsLockGuard</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      	<span class=n>WindowsLockGuard</span><span class=p>(</span><span class=n>CRITICAL_SECTION</span><span class=o>*</span> <span class=n>wcs</span><span class=p>)</span><span class=o>:</span><span class=n>_pCS</span><span class=p>(</span><span class=n>wcs</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>              <span class=n>EnterCriticalSection</span><span class=p>(</span><span class=n>_pCS</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>      	<span class=o>~</span><span class=n>WindowsLockGuard</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>              <span class=n>LeaveCriticalSection</span><span class=p>(</span><span class=n>_pCS</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=k>private</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      	<span class=n>CRITICAL_SECTION</span><span class=o>*</span> <span class=n>_pCS</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>windows中允许在同一个线程中（不同线程会卡住等待）进入同一个临界区多次, c++11不允许在同一线程中lock普通互斥量多次，否则报异常；</li></ul><h4 id=recursive_mutex>recursive_mutex</h4><ul><li>允许在同一线程中同一个递归互斥量多次lock</li><li>一般使用它是代码设计的不太好，使用后需要考虑是否有优化空间，使得只lock一次</li></ul><h4 id=带超时的互斥量>带超时的互斥量</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>timed_mutex</span> <span class=n>t_mtx</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>	<span class=n>std</span><span class=o>::</span><span class=n>recursive_timed_mutex</span> <span class=n>rt_mtx</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=n>t_mtx</span><span class=p>.</span><span class=n>try_lock_for</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>chrono</span><span class=o>::</span><span class=n>seconds</span><span class=p>(</span><span class=mi>2</span><span class=p>)))</span> <span class=c1>// 尝试等待2s 获取锁
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>// 保护内容
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=n>t_mtx</span><span class=p>.</span><span class=n>unlock</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=c1>// 普通mutex没拿到锁会阻塞，没法走下这里
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>// 没有拿到锁
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=c1>// 可以处理不需要保护内容
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// 直到某个时间点获取锁
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=p>(</span><span class=n>t_mtx</span><span class=p>.</span><span class=n>try_lock_until</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>chrono</span><span class=o>::</span><span class=n>steady_clock</span><span class=o>::</span><span class=n>now</span><span class=p>()</span> <span class=o>+</span> <span class=n>std</span><span class=o>::</span><span class=n>chrono</span><span class=o>::</span><span class=n>milliseconds</span><span class=p>(</span><span class=mi>1000</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/>多线程</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css integrity="sha256-J+iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s=" crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js integrity="sha256-InsNdER1b2xUewP+pKCUJpkhiqwHgqiPXDlIk7GzBu4=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/><div class=article-details><h2 class=article-title>bool类型vector存在的问题以及替代方案</h2></div></a></article><article><a href=/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/><div class=article-details><h2 class=article-title>vector几种初始化方式</h2></div></a></article><article><a href=/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/><div class=article-details><h2 class=article-title>正则表达式总结</h2></div></a></article><article><a href=/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/><div class=article-details><h2 class=article-title>c++20新特性</h2></div></a></article><article><a href=/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/><div class=article-details><h2 class=article-title>c++14新特性</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=Leo-Bliss/leo-bliss.github.io issue-term=title label=comments crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(e){let t=document.querySelector(".utterances iframe");t&&t.contentWindow.postMessage({type:"set-theme",theme:`github-${e}`},"https://utteranc.es")}addEventListener("message",e=>{if(e.origin!=="https://utteranc.es")return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener("onColorSchemeChange",e=>{setUtterancesTheme(e.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+2022 -
+2024 Leo</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.13.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#thread>thread</a><ol><li><a href=#并发的实现方式>并发的实现方式</a><ol><li><a href=#进程间通信>进程间通信</a></li><li><a href=#线程间通信>线程间通信</a></li><li><a href=#死锁>死锁</a></li></ol></li><li><a href=#api>API</a><ol><li><a href=#lock_guard>lock_guard</a></li><li><a href=#unique_lock>unique_lock</a></li><li><a href=#条件变量>条件变量</a></li></ol></li><li><a href=#future>future</a><ol><li><a href=#atomic>atomic</a></li><li><a href=#async>async</a></li><li><a href=#windows下的临界区>windows下的临界区</a></li><li><a href=#recursive_mutex>recursive_mutex</a></li><li><a href=#带超时的互斥量>带超时的互斥量</a></li></ol></li></ol></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
