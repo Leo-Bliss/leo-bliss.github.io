@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leo</title><link>https://leo-bliss.github.io/</link><description>Recent content on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 27 Sep 2022 20:16:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>bool类型vector存在的问题以及替代方案</title><link>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</link><pubDate>Fri, 23 Sep 2022 21:21:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</guid><description>&lt;h2 id="0x01-问题分析">0x01 问题分析&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leo</title><link>https://leo-bliss.github.io/</link><description>Recent content on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 13 May 2024 01:44:55 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>clang-format自动格式化代码</title><link>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</link><pubDate>Mon, 13 May 2024 01:44:55 +0800</pubDate><guid>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</guid><description>&lt;h2 id="vs-code">vs code&lt;/h2>
+&lt;ol>
+&lt;li>下载&lt;code>clang-format&lt;/code>插件(如果是远程开发,需要为远程主机vs code 服务端下载该插件)&lt;/li>
+&lt;li>确认是否安装&lt;code>clang-format&lt;/code>（如果是远程开发，远程主机也需要&lt;code>clang-format&lt;/code>程序）,&lt;code> windows&lt;/code>环境需要确认是否将&lt;code>clang-format&lt;/code>所在文件夹配置进环境变量&lt;/li>
+&lt;li>&lt;code>Shlft + Alt + F&lt;/code>快捷键可格式化文件，默认情况下&lt;code>Ctrl + S&lt;/code>保存时将自动格式化&lt;/li>
+&lt;/ol>
+&lt;h2 id="visual-studio-code">Visual studio code&lt;/h2>
+&lt;ul>
+&lt;li>安装Clang Power Tools 插件&lt;/li>
+&lt;li>靠近右上角插件tool bar栏目，设置中打开保存自动格式化&lt;/li>
+&lt;/ul></description></item><item><title>bool类型vector存在的问题以及替代方案</title><link>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</link><pubDate>Fri, 23 Sep 2022 21:21:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</guid><description>&lt;h2 id="0x01-问题分析">0x01 问题分析&lt;/h2>
 &lt;blockquote>
 &lt;p>在&amp;laquo;Effective STL&amp;raquo;条目18中曾提到要避免使用&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>&lt;/p>
 &lt;/blockquote>
