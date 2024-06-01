@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oop on Leo</title><link>https://leo-bliss.github.io/tags/oop/</link><description>Recent content in Oop on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 08 Sep 2022 23:06:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml"/><item><title>对于c++面向对象访问权限的误解</title><link>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</link><pubDate>Thu, 08 Sep 2022 23:06:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</guid><description>&lt;p>&lt;img src="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oop on Leo</title><link>https://leo-bliss.github.io/tags/oop/</link><description>Recent content in Oop on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 13:58:02 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml"/><item><title>一个关于拷贝构造和拷贝赋值运算符的疑问</title><link>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</link><pubDate>Sat, 01 Jun 2024 13:58:02 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</guid><description>&lt;h1 id="拷贝构造和拷贝赋值">拷贝构造和拷贝赋值&lt;/h1>
+&lt;p>之前阅读C++的书籍中拷贝构造和拷贝赋值相关章节时， 看到一些例子时总会纳闷， 比如 :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="n">string&lt;/span> &lt;span class="n">s1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">s2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 为什么这里是拷贝构造， 而不是拷贝赋值 ？
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也就是之前一直分不清一个问题： 在不考虑移动构造和移动赋值的情况下， 使用&lt;code>=&lt;/code>操作对象时是调用了拷贝构造还是拷贝赋值运算符？&lt;/p>
+&lt;p>现在明白了： &lt;strong>主要看&lt;code>=&lt;/code>左边的对象之前有没有构造好&lt;/strong>，左边的对象已经构造好了，就是调用拷贝赋值运符，否则使用的是拷贝构造。&lt;/p>
+&lt;p>举例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Object&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Object&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// b之前没有构造好，这里用的是拷贝构造
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Object&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// c之前已经构造好了，现在用的是拷贝赋值运算符
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>对于c++面向对象访问权限的误解</title><link>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</link><pubDate>Thu, 08 Sep 2022 23:06:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</guid><description>&lt;p>&lt;img src="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png"
 width="729"
 height="550"
 srcset="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w"

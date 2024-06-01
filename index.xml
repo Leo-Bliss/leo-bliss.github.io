@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leo</title><link>https://leo-bliss.github.io/</link><description>Recent content on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 13 May 2024 01:44:55 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>clang-format自动格式化代码</title><link>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</link><pubDate>Mon, 13 May 2024 01:44:55 +0800</pubDate><guid>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</guid><description>&lt;h2 id="vs-code">vs code&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leo</title><link>https://leo-bliss.github.io/</link><description>Recent content on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 13:58:02 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>一个关于拷贝构造和拷贝赋值运算符的疑问</title><link>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</link><pubDate>Sat, 01 Jun 2024 13:58:02 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</guid><description>&lt;h1 id="拷贝构造和拷贝赋值">拷贝构造和拷贝赋值&lt;/h1>
+&lt;p>之前阅读C++的书籍中拷贝构造和拷贝赋值相关章节时， 看到一些例子时总会纳闷， 比如 :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="n">string&lt;/span> &lt;span class="n">s1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">s2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 为什么这里是拷贝构造， 而不是拷贝赋值 ？
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也就是之前一直分不清一个问题： 在不考虑移动构造和移动赋值的情况下， 使用&lt;code>=&lt;/code>操作对象时是调用了拷贝构造还是拷贝赋值运算符？&lt;/p>
+&lt;p>现在明白了： &lt;strong>主要看&lt;code>=&lt;/code>左边的对象之前有没有构造好&lt;/strong>，左边的对象已经构造好了，就是调用拷贝赋值运符，否则使用的是拷贝构造。&lt;/p>
+&lt;p>举例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Object&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Object&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// b之前没有构造好，这里用的是拷贝构造
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Object&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// c之前已经构造好了，现在用的是拷贝赋值运算符
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>clang-format自动格式化代码</title><link>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</link><pubDate>Mon, 13 May 2024 01:44:55 +0800</pubDate><guid>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</guid><description>&lt;h2 id="vs-code">vs code&lt;/h2>
 &lt;ol>
 &lt;li>下载&lt;code>clang-format&lt;/code>插件(如果是远程开发,需要为远程主机vs code 服务端下载该插件)&lt;/li>
 &lt;li>确认是否安装&lt;code>clang-format&lt;/code>（如果是远程开发，远程主机也需要&lt;code>clang-format&lt;/code>程序）,&lt;code> windows&lt;/code>环境需要确认是否将&lt;code>clang-format&lt;/code>所在文件夹配置进环境变量&lt;/li>
