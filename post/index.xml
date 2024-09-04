@@ -1482,14 +1482,14 @@ data-flex-basis="411px"
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th>&lt;code>std::cmatch&lt;/code>&lt;/th>
-&lt;th>&lt;code>std::match_results&amp;lt;const char*&amp;gt;&lt;/code>&lt;/th>
+&lt;th style="text-align: left">&lt;code>std::cmatch&lt;/code>&lt;/th>
+&lt;th style="text-align: left">&lt;code>std::match_results&amp;lt;const char*&amp;gt;&lt;/code>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>&lt;code>std::smatch&lt;/code>&lt;/td>
-&lt;td>&lt;code>std::match_results&amp;lt;std::string::const_iterator&lt;/code>&amp;gt;&lt;/td>
+&lt;td style="text-align: left">&lt;code>std::smatch&lt;/code>&lt;/td>
+&lt;td style="text-align: left">&lt;code>std::match_results&amp;lt;std::string::const_iterator&lt;/code>&amp;gt;&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
