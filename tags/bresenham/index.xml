@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bresenham on Leo</title><link>https://leo-bliss.github.io/tags/bresenham/</link><description>Recent content in Bresenham on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 18 Sep 2022 22:19:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/bresenham/index.xml" rel="self" type="application/rss+xml"/><item><title>画线算法</title><link>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</link><pubDate>Sun, 18 Sep 2022 22:19:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</guid><description>&lt;h1 id="画线算法">画线算法&lt;/h1>
-&lt;h2 id="简单的画线算法">简单的画线算法&lt;/h2>
-&lt;p>根据直线方程两点式：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bresenham on Leo</title><link>https://leo-bliss.github.io/tags/bresenham/</link><description>Recent content in Bresenham on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 18 Sep 2022 22:19:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/bresenham/index.xml" rel="self" type="application/rss+xml"/><item><title>画线算法</title><link>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</link><pubDate>Sun, 18 Sep 2022 22:19:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</guid><description>&lt;h1 id="画线算法">画线算法
+&lt;/h1>&lt;h2 id="简单的画线算法">简单的画线算法
+&lt;/h2>&lt;p>根据直线方程两点式：&lt;/p>
 &lt;p>$$
 \frac{(x - x_0)}{(x_1 - x_0)} = \frac{(y - y_0)}{(y_1 - y_0)} = t, t \in [0, 1]
 $$
@@ -40,7 +40,7 @@ $$&lt;/p>
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925.png"
 width="295"
 height="297"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu10185039551524867014.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu1972289240094192694.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220915182347925"
 class="gallery-image"
@@ -51,7 +51,7 @@ data-flex-basis="238px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865.png"
 width="297"
 height="300"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hu3162266150997976216.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hu17197544020232039677.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220915182710865"
 class="gallery-image"
@@ -115,7 +115,7 @@ data-flex-basis="237px"
 &lt;/div>&lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627.png"
 width="297"
 height="300"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hu7628063849422383982.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hu16916665623188967681.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220915225521627"
 class="gallery-image"
@@ -207,8 +207,8 @@ data-flex-basis="237px"
 &lt;p>循环内有较多浮点数运算，效率比较低。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="dda-算法">DDA 算法&lt;/h2>
-&lt;blockquote>
+&lt;h2 id="dda-算法">DDA 算法
+&lt;/h2>&lt;blockquote>
 &lt;p>数值微分法:(Digital Differential Analyzer) DDA&lt;/p>
 &lt;/blockquote>
 &lt;p>我们从直线截距式来看：
@@ -262,7 +262,7 @@ $$&lt;/p>
 &lt;/div>&lt;p>上述代码绘制结果：&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306.png"
 width="300"
 height="300"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu16272141934850882392.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu10051210727955328617.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916115757306"
 class="gallery-image"
@@ -312,7 +312,7 @@ data-flex-basis="240px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585.png"
 width="296"
 height="298"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu4185668583745013549.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu2634281136648665821.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916132718585"
 class="gallery-image"
@@ -328,9 +328,9 @@ data-flex-basis="238px"
 &lt;p>消除了循环内部分浮点数运算，性能略有提升。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="bresenham算法">Bresenham算法&lt;/h2>
-&lt;h3 id="中点的bresenham算法">中点的Bresenham算法&lt;/h3>
-&lt;p>讨论一个简化的问题： 假设当前直线斜率$k \in [0, 1]$, 最大位移方向为$x$(始终有$|dx| &amp;gt; |dy|$,如果不满足 代码实现上可交换$x$和$y$来满足此条件), 已知当前点$(x, y)$, 如何取下一个点？&lt;/p>
+&lt;h2 id="bresenham算法">Bresenham算法
+&lt;/h2>&lt;h3 id="中点的bresenham算法">中点的Bresenham算法
+&lt;/h3>&lt;p>讨论一个简化的问题： 假设当前直线斜率$k \in [0, 1]$, 最大位移方向为$x$(始终有$|dx| &amp;gt; |dy|$,如果不满足 代码实现上可交换$x$和$y$来满足此条件), 已知当前点$(x, y)$, 如何取下一个点？&lt;/p>
 &lt;ul>
 &lt;li>其实很明显，我们的下一个最佳逼近点只有两个候选点：&lt;/li>
 &lt;/ul>
@@ -632,14 +632,14 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="改进的bresenham算法">改进的Bresenham算法&lt;/h3>
-&lt;ul>
+&lt;/div>&lt;h3 id="改进的bresenham算法">改进的Bresenham算法
+&lt;/h3>&lt;ul>
 &lt;li>不使用中点，而是直接使用交点：以直线&lt;strong>与每个像素格子的交点&lt;/strong> 和 &lt;strong>相交像素格子右下角点&lt;/strong> 的距离 作为判别项$d$。&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964.png"
 width="1081"
 height="458"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu14888291475569955583.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu12385076149202358787.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916180517964"
 class="gallery-image"
@@ -649,7 +649,7 @@ data-flex-basis="566px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872.png"
 width="891"
 height="520"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu72262062509607519.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu16867175208723279843.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916180648872"
 class="gallery-image"
@@ -755,8 +755,8 @@ data-flex-basis="411px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="参考资料">参考资料：&lt;/h2>
-&lt;ul>
+&lt;/div>&lt;h2 id="参考资料">参考资料：
+&lt;/h2>&lt;ul>
 &lt;li>&lt;a class="link" href="https://www.icourse163.org/course/HUST-1003636001" target="_blank" rel="noopener"
 >中国mooc: 华中科技大学《计算机图形学》&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

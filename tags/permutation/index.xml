@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Permutation on Leo</title><link>https://leo-bliss.github.io/tags/permutation/</link><description>Recent content in Permutation on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 21 Sep 2022 23:36:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/permutation/index.xml" rel="self" type="application/rss+xml"/><item><title>洗牌和全排列的联系</title><link>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 21 Sep 2022 23:36:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</guid><description>&lt;h2 id="洗牌算法">洗牌算法&lt;/h2>
-&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Permutation on Leo</title><link>https://leo-bliss.github.io/tags/permutation/</link><description>Recent content in Permutation on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 21 Sep 2022 23:36:00 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/permutation/index.xml" rel="self" type="application/rss+xml"/><item><title>洗牌和全排列的联系</title><link>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 21 Sep 2022 23:36:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</guid><description>&lt;h2 id="洗牌算法">洗牌算法
+&lt;/h2>&lt;blockquote>
 &lt;p>假设有&lt;code>n&lt;/code>个元素的序列，要对它们&lt;code>shuffle&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -49,8 +49,8 @@ $$
 &lt;p>所以每个元素都等概率出现在任一位置。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="全排序算法">全排序算法&lt;/h2>
-&lt;blockquote>
+&lt;h2 id="全排序算法">全排序算法
+&lt;/h2>&lt;blockquote>
 &lt;p>假设有&lt;code>n&lt;/code>个元素的序列， 返回它的所有可能排序，可以按照任意顺序&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -198,8 +198,8 @@ $$
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="总结">总结&lt;/h2>
-&lt;ul>
+&lt;h2 id="总结">总结
+&lt;/h2>&lt;ul>
 &lt;li>洗牌本身要求就是&lt;strong>每一种排列&lt;/strong>都等概率的出现，而全排列就是把&lt;strong>每一种排列&lt;/strong>枚举出来。&lt;/li>
 &lt;li>如果你发现了前面提到的Fisher-Yates洗牌和版本2的全排列的相同之处，相信以后你只要会&lt;strong>两者中之一&lt;/strong>， 那么两者大概率都能够实现出来。&lt;/li>
 &lt;li>对于全排列算法，涉及到全排列的去重，字典序，非递归写法（字典序求解下一个排列），我以前有个简单总结：&lt;a class="link" href="http://t.csdn.cn/Y7ixU" target="_blank" rel="noopener"

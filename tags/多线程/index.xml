@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>多线程 on Leo</title><link>https://leo-bliss.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link><description>Recent content in 多线程 on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>c++多线程总结</title><link>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="thread">thread&lt;/h2>
-&lt;p>基础概念：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>多线程 on Leo</title><link>https://leo-bliss.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link><description>Recent content in 多线程 on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>c++多线程总结</title><link>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="thread">thread
+&lt;/h2>&lt;p>基础概念：&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。&lt;/p>
@@ -14,18 +14,18 @@
 &lt;p>临界区： 每个进程访问临界资源的那段代码和共享变量有关的程序段。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="并发的实现方式">并发的实现方式&lt;/h3>
-&lt;ul>
+&lt;h3 id="并发的实现方式">并发的实现方式
+&lt;/h3>&lt;ul>
 &lt;li>通过多个进程实现并发&lt;/li>
 &lt;li>通过创建多个线程实现并发&lt;/li>
 &lt;/ul>
-&lt;h4 id="进程间通信">进程间通信&lt;/h4>
-&lt;ul>
+&lt;h4 id="进程间通信">进程间通信
+&lt;/h4>&lt;ul>
 &lt;li>同一电脑： 管道，共享内存，文件， 消息队列&lt;/li>
 &lt;li>不同电脑： socket通信&lt;/li>
 &lt;/ul>
-&lt;h4 id="线程间通信">线程间通信&lt;/h4>
-&lt;ul>
+&lt;h4 id="线程间通信">线程间通信
+&lt;/h4>&lt;ul>
 &lt;li>共享内存，比如使用全局变量&lt;/li>
 &lt;li>共享数据分析：
 &lt;ul>
@@ -34,8 +34,8 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h4 id="死锁">死锁&lt;/h4>
-&lt;blockquote>
+&lt;h4 id="死锁">死锁
+&lt;/h4>&lt;blockquote>
 &lt;p>只有至少有两把锁才可能出现死锁&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -69,8 +69,8 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="api">API&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h3 id="api">API
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -88,12 +88,12 @@
 &lt;li>尽可能不使用&lt;code>detach&lt;/code>&lt;/li>
 &lt;li>明确往线程对象入口函数参数指定需要传入&lt;strong>真引用&lt;/strong>则必须使用&lt;code>std::ref&lt;/code>，否则都是默认拷贝，但是传真引用只有使用&lt;code>join&lt;/code>才是安全的&lt;/li>
 &lt;/ul>
-&lt;h4 id="lock_guard">lock_guard&lt;/h4>
-&lt;ul>
+&lt;h4 id="lock_guard">lock_guard
+&lt;/h4>&lt;ul>
 &lt;li>&lt;code>std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock)&lt;/code>, &lt;code>std::adopt_lock&lt;/code>适应之前mtx已经了lock，从而不再lock&lt;/li>
 &lt;/ul>
-&lt;h4 id="unique_lock">unique_lock&lt;/h4>
-&lt;ul>
+&lt;h4 id="unique_lock">unique_lock
+&lt;/h4>&lt;ul>
 &lt;li>
 &lt;p>可以完全取代&lt;code>lock_guard&lt;/code>, 而且更灵活，但是占有更多空间，相比&lt;code>std::adopt_lock&lt;/code>还有其他参数&lt;/p>
 &lt;/li>
@@ -116,8 +116,8 @@
 &lt;p>&lt;code>unique_lock&lt;/code>对象所有权转移方法：使用std::move； 通过一个函数作为临时对象返回；&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h4 id="条件变量">条件变量&lt;/h4>
-&lt;ul>
+&lt;h4 id="条件变量">条件变量
+&lt;/h4>&lt;ul>
 &lt;li>&lt;code>std::condition_variable&lt;/code>:需要结合互斥量进行使用&lt;/li>
 &lt;li>&lt;code>wait&lt;/code>():
 &lt;ul>
@@ -145,8 +145,8 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="future">future&lt;/h3>
-&lt;ul>
+&lt;h3 id="future">future
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>&lt;code>vaild()&lt;/code>: 判断值是否有效&lt;/p>
 &lt;/li>
@@ -172,14 +172,14 @@
 &lt;p>&lt;code>shared_future&lt;/code>: 用于多个线程获取future数据，由于普通future对象只支持get一次，&lt;code>std::shared_future&amp;lt;int&amp;gt; sf = std::thread([]{return 1;});&lt;/code>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h4 id="atomic">atomic&lt;/h4>
-&lt;ul>
+&lt;h4 id="atomic">atomic
+&lt;/h4>&lt;ul>
 &lt;li>原子操作概念：不可分割的操作，要么完成要么未完成， 不可能出现中间状态。在多线程种不会被打断的程序执行片段。 效率上比互斥量更高。适用于一个变量而不是一个代码段。能用原子操作就不用互斥量；一般针对&lt;code>++, --, +=, -=&lt;/code>操作符，其他的不一定支持原子操作，比如&lt;code>x = x + 1&lt;/code>不支持原子操作。&lt;/li>
 &lt;li>&lt;code>load()&lt;/code>原子方式读取值，没有拷贝构造和赋值操作符， 可以这样进行复制：&lt;code>std::atomic&amp;lt;int&amp;gt; m2(m1.load())&lt;/code>;&lt;/li>
 &lt;li>&lt;code>store(v)&lt;/code>原子方式写入值，&lt;code>std::atomic&amp;lt;int&amp;gt;m1 = 0; m1.store(1);&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h4 id="async">async&lt;/h4>
-&lt;blockquote>
+&lt;h4 id="async">async
+&lt;/h4>&lt;blockquote>
 &lt;p>用于创建异步任务&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -265,8 +265,8 @@
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
-&lt;h4 id="windows下的临界区">windows下的临界区&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h4 id="windows下的临界区">windows下的临界区
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -347,13 +347,13 @@
 &lt;/div>&lt;ul>
 &lt;li>windows中允许在同一个线程中（不同线程会卡住等待）进入同一个临界区多次, c++11不允许在同一线程中lock普通互斥量多次，否则报异常；&lt;/li>
 &lt;/ul>
-&lt;h4 id="recursive_mutex">recursive_mutex&lt;/h4>
-&lt;ul>
+&lt;h4 id="recursive_mutex">recursive_mutex
+&lt;/h4>&lt;ul>
 &lt;li>允许在同一线程中同一个递归互斥量多次lock&lt;/li>
 &lt;li>一般使用它是代码设计的不太好，使用后需要考虑是否有优化空间，使得只lock一次&lt;/li>
 &lt;/ul>
-&lt;h4 id="带超时的互斥量">带超时的互斥量&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h4 id="带超时的互斥量">带超时的互斥量
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2

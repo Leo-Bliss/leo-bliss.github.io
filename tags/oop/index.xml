@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oop on Leo</title><link>https://leo-bliss.github.io/tags/oop/</link><description>Recent content in Oop on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 13:58:02 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml"/><item><title>一个关于拷贝构造和拷贝赋值运算符的疑问</title><link>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</link><pubDate>Sat, 01 Jun 2024 13:58:02 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</guid><description>&lt;h1 id="拷贝构造和拷贝赋值">拷贝构造和拷贝赋值&lt;/h1>
-&lt;p>之前阅读C++的书籍中拷贝构造和拷贝赋值相关章节时， 看到一些例子时总会纳闷， 比如 :&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oop on Leo</title><link>https://leo-bliss.github.io/tags/oop/</link><description>Recent content in Oop on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 13:58:02 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml"/><item><title>一个关于拷贝构造和拷贝赋值运算符的疑问</title><link>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</link><pubDate>Sat, 01 Jun 2024 13:58:02 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</guid><description>&lt;h1 id="拷贝构造和拷贝赋值">拷贝构造和拷贝赋值
+&lt;/h1>&lt;p>之前阅读C++的书籍中拷贝构造和拷贝赋值相关章节时， 看到一些例子时总会纳闷， 比如 :&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -30,18 +30,18 @@
 &lt;/div></description></item><item><title>对于c++面向对象访问权限的误解</title><link>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</link><pubDate>Thu, 08 Sep 2022 23:06:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</guid><description>&lt;p>&lt;img src="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png"
 width="729"
 height="550"
-srcset="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hu17357406683387612558.png 480w, https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hu10115331597219611120.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="visit_private"
 class="gallery-image"
 data-flex-grow="132"
 data-flex-basis="318px"
 >&lt;/p>
-&lt;h2 id="疑问">疑问&lt;/h2>
-&lt;p>突然写了上方这样的代码，然后居然没有报错。让我产生了疑问：
+&lt;h2 id="疑问">疑问
+&lt;/h2>&lt;p>突然写了上方这样的代码，然后居然没有报错。让我产生了疑问：
 private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？&lt;/p>
-&lt;h2 id="解答">解答&lt;/h2>
-&lt;ul>
+&lt;h2 id="解答">解答
+&lt;/h2>&lt;ul>
 &lt;li>封装是编译期的概念，是&lt;strong>针对类型而非对象&lt;/strong>的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.cnblogs.com/woshizhizhong-tech/p/8450475.html" target="_blank" rel="noopener"
 >ref&lt;/a>&lt;/li>

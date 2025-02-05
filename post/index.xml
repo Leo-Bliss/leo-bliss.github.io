@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Leo</title><link>https://leo-bliss.github.io/post/</link><description>Recent content in Posts on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 13:58:02 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>一个关于拷贝构造和拷贝赋值运算符的疑问</title><link>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</link><pubDate>Sat, 01 Jun 2024 13:58:02 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</guid><description>&lt;h1 id="拷贝构造和拷贝赋值">拷贝构造和拷贝赋值&lt;/h1>
-&lt;p>之前阅读C++的书籍中拷贝构造和拷贝赋值相关章节时， 看到一些例子时总会纳闷， 比如 :&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Leo</title><link>https://leo-bliss.github.io/post/</link><description>Recent content in Posts on Leo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2024 13:58:02 +0800</lastBuildDate><atom:link href="https://leo-bliss.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>一个关于拷贝构造和拷贝赋值运算符的疑问</title><link>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</link><pubDate>Sat, 01 Jun 2024 13:58:02 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%92%8C%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%96%91%E9%97%AE/</guid><description>&lt;h1 id="拷贝构造和拷贝赋值">拷贝构造和拷贝赋值
+&lt;/h1>&lt;p>之前阅读C++的书籍中拷贝构造和拷贝赋值相关章节时， 看到一些例子时总会纳闷， 比如 :&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -27,22 +27,22 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// c之前已经构造好了，现在用的是拷贝赋值运算符
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>clang-format自动格式化代码</title><link>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</link><pubDate>Mon, 13 May 2024 01:44:55 +0800</pubDate><guid>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</guid><description>&lt;h2 id="vs-code">vs code&lt;/h2>
-&lt;ol>
+&lt;/div></description></item><item><title>clang-format自动格式化代码</title><link>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</link><pubDate>Mon, 13 May 2024 01:44:55 +0800</pubDate><guid>https://leo-bliss.github.io/p/clang-format%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81/</guid><description>&lt;h2 id="vs-code">vs code
+&lt;/h2>&lt;ol>
 &lt;li>下载&lt;code>clang-format&lt;/code>插件(如果是远程开发,需要为远程主机vs code 服务端下载该插件)&lt;/li>
 &lt;li>确认是否安装&lt;code>clang-format&lt;/code>（如果是远程开发，远程主机也需要&lt;code>clang-format&lt;/code>程序）,&lt;code> windows&lt;/code>环境需要确认是否将&lt;code>clang-format&lt;/code>所在文件夹配置进环境变量&lt;/li>
 &lt;li>&lt;code>Shlft + Alt + F&lt;/code>快捷键可格式化文件，默认情况下&lt;code>Ctrl + S&lt;/code>保存时将自动格式化&lt;/li>
 &lt;/ol>
-&lt;h2 id="visual-studio-code">Visual studio code&lt;/h2>
-&lt;ul>
+&lt;h2 id="visual-studio-code">Visual studio code
+&lt;/h2>&lt;ul>
 &lt;li>安装Clang Power Tools 插件&lt;/li>
 &lt;li>靠近右上角插件tool bar栏目，设置中打开保存自动格式化&lt;/li>
-&lt;/ul></description></item><item><title>bool类型vector存在的问题以及替代方案</title><link>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</link><pubDate>Fri, 23 Sep 2022 21:21:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</guid><description>&lt;h2 id="0x01-问题分析">0x01 问题分析&lt;/h2>
-&lt;blockquote>
+&lt;/ul></description></item><item><title>bool类型vector存在的问题以及替代方案</title><link>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</link><pubDate>Fri, 23 Sep 2022 21:21:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/bool%E7%B1%BB%E5%9E%8Bvector%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88/</guid><description>&lt;h2 id="0x01-问题分析">0x01 问题分析
+&lt;/h2>&lt;blockquote>
 &lt;p>在&amp;laquo;Effective STL&amp;raquo;条目18中曾提到要避免使用&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="分析">分析&lt;/h3>
-&lt;ul>
+&lt;h3 id="分析">分析
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>不能算标准容器，标准容器要满足： &lt;code>T* p = &amp;amp;vec[0]&lt;/code>可编译, 而它不满足：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -84,14 +84,14 @@
 &lt;p>&lt;code>bool b = vec[0];&lt;/code>没问题是由于有隐式类型转换。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="小结">小结&lt;/h3>
-&lt;p>通过上面的分析总结&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>存在两个小坑（问题）：&lt;/p>
+&lt;h3 id="小结">小结
+&lt;/h3>&lt;p>通过上面的分析总结&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>存在两个小坑（问题）：&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>bool&lt;/code>指针（引用）没法直接指向元素&lt;/li>
 &lt;li>元素赋值给&lt;code>auto&lt;/code>变量，修改该变量会影响容器中元素&lt;/li>
 &lt;/ul>
-&lt;h2 id="0x02-替代方案">0x02 替代方案&lt;/h2>
-&lt;ol>
+&lt;h2 id="0x02-替代方案">0x02 替代方案
+&lt;/h2>&lt;ol>
 &lt;li>
 &lt;p>不需要动态扩容可以考虑使用&lt;code>array&lt;/code> (PS: &lt;code>array&lt;/code>似乎被人遗忘了，刷题中上场率不高~):&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -176,8 +176,8 @@
 &lt;/div>&lt;p>&lt;strong>如果真的有必要&lt;/strong>，个人更倾向&lt;strong>第1种和第3种替代方案&lt;/strong>， 第2种反直觉且不方便。&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;h2 id="0x03-注意">0x03 注意&lt;/h2>
-&lt;ul>
+&lt;h2 id="0x03-注意">0x03 注意
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>并不能&lt;strong>为了避免上面提到的&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>存在的问题&lt;/strong>而用&lt;code>bitset&lt;/code>来替代， 因为前面已经提到&lt;code>vector&amp;lt;bool&amp;gt;&lt;/code>相当于可动态扩容的&lt;code>bitset&lt;/code>，而且&lt;code>bitset&lt;/code>并没有基于范围的for循环：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -230,8 +230,8 @@
 >to_ullong&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>malloc底层实现</title><link>https://leo-bliss.github.io/p/malloc%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/</link><pubDate>Fri, 23 Sep 2022 21:14:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/malloc%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/</guid><description/></item><item><title>洗牌和全排列的联系</title><link>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 21 Sep 2022 23:36:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</guid><description>&lt;h2 id="洗牌算法">洗牌算法&lt;/h2>
-&lt;blockquote>
+&lt;/ul></description></item><item><title>malloc底层实现</title><link>https://leo-bliss.github.io/p/malloc%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/</link><pubDate>Fri, 23 Sep 2022 21:14:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/malloc%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/</guid><description/></item><item><title>洗牌和全排列的联系</title><link>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 21 Sep 2022 23:36:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E6%B4%97%E7%89%8C%E5%92%8C%E5%85%A8%E6%8E%92%E5%88%97%E7%9A%84%E8%81%94%E7%B3%BB/</guid><description>&lt;h2 id="洗牌算法">洗牌算法
+&lt;/h2>&lt;blockquote>
 &lt;p>假设有&lt;code>n&lt;/code>个元素的序列，要对它们&lt;code>shuffle&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -281,8 +281,8 @@ $$
 &lt;p>所以每个元素都等概率出现在任一位置。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="全排序算法">全排序算法&lt;/h2>
-&lt;blockquote>
+&lt;h2 id="全排序算法">全排序算法
+&lt;/h2>&lt;blockquote>
 &lt;p>假设有&lt;code>n&lt;/code>个元素的序列， 返回它的所有可能排序，可以按照任意顺序&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -430,14 +430,14 @@ $$
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="总结">总结&lt;/h2>
-&lt;ul>
+&lt;h2 id="总结">总结
+&lt;/h2>&lt;ul>
 &lt;li>洗牌本身要求就是&lt;strong>每一种排列&lt;/strong>都等概率的出现，而全排列就是把&lt;strong>每一种排列&lt;/strong>枚举出来。&lt;/li>
 &lt;li>如果你发现了前面提到的Fisher-Yates洗牌和版本2的全排列的相同之处，相信以后你只要会&lt;strong>两者中之一&lt;/strong>， 那么两者大概率都能够实现出来。&lt;/li>
 &lt;li>对于全排列算法，涉及到全排列的去重，字典序，非递归写法（字典序求解下一个排列），我以前有个简单总结：&lt;a class="link" href="http://t.csdn.cn/Y7ixU" target="_blank" rel="noopener"
 >Algorithm of permutation(全排列算法)&lt;/a>。&lt;/li>
-&lt;/ul></description></item><item><title>vector几种初始化方式</title><link>https://leo-bliss.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</link><pubDate>Sun, 18 Sep 2022 23:54:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</guid><description>&lt;h2 id="构造时初始化为指定值">构造时初始化为指定值&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/ul></description></item><item><title>vector几种初始化方式</title><link>https://leo-bliss.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</link><pubDate>Sun, 18 Sep 2022 23:54:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/vector%E5%87%A0%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E5%BC%8F/</guid><description>&lt;h2 id="构造时初始化为指定值">构造时初始化为指定值
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -449,8 +449,8 @@ $$
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">vector&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">vec&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="成员函数assign">成员函数assign&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h2 id="成员函数assign">成员函数assign
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -468,9 +468,9 @@ $$
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">vec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34; = &amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">vec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">capacity&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 50, 50
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="借助填充算法">借助填充算法&lt;/h2>
-&lt;h3 id="填充为相同的值">填充为相同的值&lt;/h3>
-&lt;ul>
+&lt;/div>&lt;h2 id="借助填充算法">借助填充算法
+&lt;/h2>&lt;h3 id="填充为相同的值">填充为相同的值
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>基本用法&lt;/p>
 &lt;ul>
@@ -495,8 +495,8 @@ $$
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">fill_n&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">begin&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">vec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">);&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="iota填充为一个序列">iota填充为一个序列&lt;/h3>
-&lt;ul>
+&lt;/div>&lt;h3 id="iota填充为一个序列">iota填充为一个序列
+&lt;/h3>&lt;ul>
 &lt;li>c++11提供的算法,定义在头文件&lt;code>&amp;lt;numeric&amp;gt;&lt;/code>中&lt;/li>
 &lt;li>定义：&lt;/li>
 &lt;/ul>
@@ -523,9 +523,9 @@ $$
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">iota&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">begin&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">vec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">end&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">startValue&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// startValue, startValue+1...startValue+vec.size()
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>画线算法</title><link>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</link><pubDate>Sun, 18 Sep 2022 22:19:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</guid><description>&lt;h1 id="画线算法">画线算法&lt;/h1>
-&lt;h2 id="简单的画线算法">简单的画线算法&lt;/h2>
-&lt;p>根据直线方程两点式：&lt;/p>
+&lt;/div></description></item><item><title>画线算法</title><link>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</link><pubDate>Sun, 18 Sep 2022 22:19:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</guid><description>&lt;h1 id="画线算法">画线算法
+&lt;/h1>&lt;h2 id="简单的画线算法">简单的画线算法
+&lt;/h2>&lt;p>根据直线方程两点式：&lt;/p>
 &lt;p>$$
 \frac{(x - x_0)}{(x_1 - x_0)} = \frac{(y - y_0)}{(y_1 - y_0)} = t, t \in [0, 1]
 $$
@@ -565,7 +565,7 @@ $$&lt;/p>
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925.png"
 width="295"
 height="297"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu10185039551524867014.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu1972289240094192694.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182347925_hu95de3390bda1402b0320106369822171_2402_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220915182347925"
 class="gallery-image"
@@ -576,7 +576,7 @@ data-flex-basis="238px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865.png"
 width="297"
 height="300"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hu3162266150997976216.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hu17197544020232039677.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915182710865_hufa7a5d6f1c2cf144b27e1197b4b5e30d_1612_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220915182710865"
 class="gallery-image"
@@ -640,7 +640,7 @@ data-flex-basis="237px"
 &lt;/div>&lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627.png"
 width="297"
 height="300"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hu7628063849422383982.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hu16916665623188967681.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220915225521627_hufa3b7f82855d64a2190301ec2d82e9cf_1991_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220915225521627"
 class="gallery-image"
@@ -732,8 +732,8 @@ data-flex-basis="237px"
 &lt;p>循环内有较多浮点数运算，效率比较低。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="dda-算法">DDA 算法&lt;/h2>
-&lt;blockquote>
+&lt;h2 id="dda-算法">DDA 算法
+&lt;/h2>&lt;blockquote>
 &lt;p>数值微分法:(Digital Differential Analyzer) DDA&lt;/p>
 &lt;/blockquote>
 &lt;p>我们从直线截距式来看：
@@ -787,7 +787,7 @@ $$&lt;/p>
 &lt;/div>&lt;p>上述代码绘制结果：&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306.png"
 width="300"
 height="300"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu16272141934850882392.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu10051210727955328617.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916115757306_hu4fecfc0a3d98f676a7a1984c86608844_2011_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916115757306"
 class="gallery-image"
@@ -837,7 +837,7 @@ data-flex-basis="240px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585.png"
 width="296"
 height="298"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu4185668583745013549.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu2634281136648665821.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916132718585_hu362629cd3784461eaffd788234d18aba_2032_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916132718585"
 class="gallery-image"
@@ -853,9 +853,9 @@ data-flex-basis="238px"
 &lt;p>消除了循环内部分浮点数运算，性能略有提升。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="bresenham算法">Bresenham算法&lt;/h2>
-&lt;h3 id="中点的bresenham算法">中点的Bresenham算法&lt;/h3>
-&lt;p>讨论一个简化的问题： 假设当前直线斜率$k \in [0, 1]$, 最大位移方向为$x$(始终有$|dx| &amp;gt; |dy|$,如果不满足 代码实现上可交换$x$和$y$来满足此条件), 已知当前点$(x, y)$, 如何取下一个点？&lt;/p>
+&lt;h2 id="bresenham算法">Bresenham算法
+&lt;/h2>&lt;h3 id="中点的bresenham算法">中点的Bresenham算法
+&lt;/h3>&lt;p>讨论一个简化的问题： 假设当前直线斜率$k \in [0, 1]$, 最大位移方向为$x$(始终有$|dx| &amp;gt; |dy|$,如果不满足 代码实现上可交换$x$和$y$来满足此条件), 已知当前点$(x, y)$, 如何取下一个点？&lt;/p>
 &lt;ul>
 &lt;li>其实很明显，我们的下一个最佳逼近点只有两个候选点：&lt;/li>
 &lt;/ul>
@@ -1157,14 +1157,14 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="改进的bresenham算法">改进的Bresenham算法&lt;/h3>
-&lt;ul>
+&lt;/div>&lt;h3 id="改进的bresenham算法">改进的Bresenham算法
+&lt;/h3>&lt;ul>
 &lt;li>不使用中点，而是直接使用交点：以直线&lt;strong>与每个像素格子的交点&lt;/strong> 和 &lt;strong>相交像素格子右下角点&lt;/strong> 的距离 作为判别项$d$。&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964.png"
 width="1081"
 height="458"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu14888291475569955583.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu12385076149202358787.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180517964_hu15ae8486bbec0004fee3e2c9632c04f7_271375_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916180517964"
 class="gallery-image"
@@ -1174,7 +1174,7 @@ data-flex-basis="566px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872.png"
 width="891"
 height="520"
-srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu72262062509607519.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu16867175208723279843.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/image-20220916180648872_hu071927e9deb661e0fa98f8d1a81f1aa5_185760_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="image-20220916180648872"
 class="gallery-image"
@@ -1280,15 +1280,15 @@ data-flex-basis="411px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="参考资料">参考资料：&lt;/h2>
-&lt;ul>
+&lt;/div>&lt;h2 id="参考资料">参考资料：
+&lt;/h2>&lt;ul>
 &lt;li>&lt;a class="link" href="https://www.icourse163.org/course/HUST-1003636001" target="_blank" rel="noopener"
 >中国mooc: 华中科技大学《计算机图形学》&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>正则表达式总结</title><link>https://leo-bliss.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/</link><pubDate>Thu, 15 Sep 2022 14:57:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/</guid><description>&lt;blockquote>
 &lt;p>c++11开始引入了正则表达式库regex&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="正则语法基础">正则语法基础&lt;/h2>
-&lt;ul>
+&lt;h2 id="正则语法基础">正则语法基础
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;code>.&lt;/code>: 匹配任意单个字符，除了换行符&lt;code>\n&lt;/code>&lt;/p>
 &lt;/li>
@@ -1338,13 +1338,13 @@ data-flex-basis="411px"
 &lt;p>&lt;code>\&lt;/code>： 标识转义用于匹配一个原义字符，或者标识一个特殊字符&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="c正则库的使用">c++正则库的使用&lt;/h2>
-&lt;blockquote>
+&lt;h2 id="c正则库的使用">c++正则库的使用
+&lt;/h2>&lt;blockquote>
 &lt;p>regex库提供了3个正则匹配算法，通过这3个算法来学习c++正则库的基本使用&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="regex_matchhttpsencppreferencecomwcppregexregex_match">&lt;a class="link" href="https://en.cppreference.com/w/cpp/regex/regex_match" target="_blank" rel="noopener"
->regex_match&lt;/a>&lt;/h3>
-&lt;ul>
+>regex_match&lt;/a>
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>只关注有没有匹配成功&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1446,8 +1446,8 @@ data-flex-basis="411px"
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="regex_searchhttpsencppreferencecomwcppregexregex_search">&lt;a class="link" href="https://en.cppreference.com/w/cpp/regex/regex_search" target="_blank" rel="noopener"
->regex_search&lt;/a>&lt;/h3>
-&lt;blockquote>
+>regex_search&lt;/a>
+&lt;/h3>&lt;blockquote>
 &lt;p>和&lt;code>regex_match&lt;/code>的两种用法一样&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -1482,14 +1482,14 @@ data-flex-basis="411px"
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;code>std::cmatch&lt;/code>&lt;/th>
-&lt;th style="text-align: left">&lt;code>std::match_results&amp;lt;const char*&amp;gt;&lt;/code>&lt;/th>
+&lt;th>&lt;code>std::cmatch&lt;/code>&lt;/th>
+&lt;th>&lt;code>std::match_results&amp;lt;const char*&amp;gt;&lt;/code>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>std::smatch&lt;/code>&lt;/td>
-&lt;td style="text-align: left">&lt;code>std::match_results&amp;lt;std::string::const_iterator&lt;/code>&amp;gt;&lt;/td>
+&lt;td>&lt;code>std::smatch&lt;/code>&lt;/td>
+&lt;td>&lt;code>std::match_results&amp;lt;std::string::const_iterator&lt;/code>&amp;gt;&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1586,8 +1586,8 @@ data-flex-basis="411px"
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="regex_replacehttpsencppreferencecomwcppregexregex_replace">&lt;a class="link" href="https://en.cppreference.com/w/cpp/regex/regex_replace" target="_blank" rel="noopener"
->regex_replace&lt;/a>&lt;/h3>
-&lt;ul>
+>regex_replace&lt;/a>
+&lt;/h3>&lt;ul>
 &lt;li>匹配替换后直接返回替换后的结果：&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1634,8 +1634,8 @@ data-flex-basis="411px"
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>替换项如果为&lt;code>$&amp;amp;&lt;/code>则表示保持匹配结果内容，在&lt;code>$&amp;amp;&lt;/code>两边加上字符很容易&lt;strong>根据匹配结果 进行构造 替换项&lt;/strong>&lt;/li>
-&lt;/ul></description></item><item><title>c++20新特性</title><link>https://leo-bliss.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Thu, 15 Sep 2022 12:09:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性&lt;/h2>
-&lt;ul>
+&lt;/ul></description></item><item><title>c++20新特性</title><link>https://leo-bliss.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Thu, 15 Sep 2022 12:09:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-20%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>char8_ t&lt;/code>&lt;/li>
 &lt;li>三路比较运算符：&lt;code>&amp;lt;=&amp;gt;&lt;/code>&lt;/li>
 &lt;li>lambda表达式使用&lt;code>[=]&lt;/code>将无法隐式捕获&lt;code>this&lt;/code>,需要&lt;code>[=, this]&lt;/code>进行显示捕获&lt;/li>
@@ -1702,8 +1702,8 @@ data-flex-basis="411px"
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
-&lt;h2 id="标准库新特性">标准库新特性&lt;/h2>
-&lt;ul>
+&lt;h2 id="标准库新特性">标准库新特性
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;code>std::format&lt;/code>:&lt;/p>
 &lt;p>&lt;strong>类似python的一种格式化, 注意在vs里面项目配置语言标准需要选&lt;code>/std:c++latest&lt;/code>(听说是c++20+), 直接选``/std:c++20&lt;code>会报&lt;/code>std&lt;code>中找不到&lt;/code>format`错误&lt;/strong>&lt;/p>
@@ -1726,8 +1726,8 @@ data-flex-basis="411px"
 &lt;li>
 &lt;p>&lt;code>ranges&lt;/code>库&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>c++14新特性</title><link>https://leo-bliss.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Tue, 13 Sep 2022 23:39:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性&lt;/h2>
-&lt;ul>
+&lt;/ul></description></item><item><title>c++14新特性</title><link>https://leo-bliss.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Tue, 13 Sep 2022 23:39:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-14%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性
+&lt;/h2>&lt;ul>
 &lt;li>变量模板&lt;/li>
 &lt;li>结合using的别名模板&lt;/li>
 &lt;li>泛型lambda（形参可用auto）&lt;/li>
@@ -1746,11 +1746,11 @@ data-flex-basis="411px"
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
-&lt;h2 id="标准库新特性">标准库新特性&lt;/h2>
-&lt;ul>
+&lt;h2 id="标准库新特性">标准库新特性
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>std::make_unique&lt;/code>构造&lt;code>unique_ptr&lt;/code>&lt;/li>
-&lt;/ul></description></item><item><title>c++17新特性</title><link>https://leo-bliss.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Tue, 13 Sep 2022 21:49:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性&lt;/h2>
-&lt;ul>
+&lt;/ul></description></item><item><title>c++17新特性</title><link>https://leo-bliss.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Tue, 13 Sep 2022 21:49:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-17%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性
+&lt;/h2>&lt;ul>
 &lt;li>结构化绑定声明：&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1771,8 +1771,8 @@ data-flex-basis="411px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">auto&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tp&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="标准库新特性">标准库新特性&lt;/h2>
-&lt;ul>
+&lt;/div>&lt;h2 id="标准库新特性">标准库新特性
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>string_view&lt;/code>: 当&lt;code>string&lt;/code>使用&lt;code>char*&lt;/code>进行构造时会重新分配内存然后拷贝&lt;code>char*&lt;/code>指向的内容。
 当内容只需要读取的时候完全不需要重新分配内存然后拷贝，只需要在原来的内容上建立一张视图，此时就可以使用&lt;code>string_view&lt;/code>来做。&lt;/li>
 &lt;li>类型可擦除的&lt;code>std::any&lt;/code>&lt;/li>
@@ -1795,8 +1795,8 @@ data-flex-basis="411px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">apply&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">print&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">tuple&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">));&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>c++11新特性</title><link>https://leo-bliss.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Tue, 13 Sep 2022 21:39:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性&lt;/h2>
-&lt;ul>
+&lt;/div></description></item><item><title>c++11新特性</title><link>https://leo-bliss.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</link><pubDate>Tue, 13 Sep 2022 21:39:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/c-11%E6%96%B0%E7%89%B9%E6%80%A7/</guid><description>&lt;h2 id="语法层面新特性">语法层面新特性
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>long long&lt;/code>类型&lt;/li>
 &lt;li>&lt;code>char16_t&lt;/code>,&lt;code>char32_t&lt;/code>&lt;/li>
 &lt;li>&lt;code>auto&lt;/code> 和&lt;code>decltype&lt;/code>&lt;/li>
@@ -1831,8 +1831,8 @@ data-flex-basis="411px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="标准库新特性">标准库新特性&lt;/h2>
-&lt;ul>
+&lt;/div>&lt;h2 id="标准库新特性">标准库新特性
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>unorder_map&lt;/code>和&lt;code>unordered_set&lt;/code>以及它们multi版本&lt;/li>
 &lt;li>类型萃取支持（type_traits）： 借助模板和模板的偏特化来实现的&lt;/li>
 &lt;li>并发库的支持： &lt;code>thread&lt;/code>,&lt;code>mutex&lt;/code>, &lt;code>atomic&lt;/code>, &lt;code>condition_variable&lt;/code>等&lt;/li>
@@ -1877,23 +1877,23 @@ data-flex-basis="411px"
 &lt;/ul></description></item><item><title>对于c++面向对象访问权限的误解</title><link>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</link><pubDate>Thu, 08 Sep 2022 23:06:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/</guid><description>&lt;p>&lt;img src="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private.png"
 width="729"
 height="550"
-srcset="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hu17357406683387612558.png 480w, https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hu10115331597219611120.png 1024w"
+srcset="https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/%E5%AF%B9%E4%BA%8Ec-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E8%AF%AF%E8%A7%A3/visit_private_hueb0b643e7e8534e375dfb702d9d0b65a_86845_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="visit_private"
 class="gallery-image"
 data-flex-grow="132"
 data-flex-basis="318px"
 >&lt;/p>
-&lt;h2 id="疑问">疑问&lt;/h2>
-&lt;p>突然写了上方这样的代码，然后居然没有报错。让我产生了疑问：
+&lt;h2 id="疑问">疑问
+&lt;/h2>&lt;p>突然写了上方这样的代码，然后居然没有报错。让我产生了疑问：
 private成员不是不允许外部访问吗？这么为什么这里可以直接访问？难道外部是指非本身类内？&lt;/p>
-&lt;h2 id="解答">解答&lt;/h2>
-&lt;ul>
+&lt;h2 id="解答">解答
+&lt;/h2>&lt;ul>
 &lt;li>封装是编译期的概念，是&lt;strong>针对类型而非对象&lt;/strong>的，在类的成员函数中是可以访问同类型实例对象的私有成员变量的。&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.cnblogs.com/woshizhizhong-tech/p/8450475.html" target="_blank" rel="noopener"
 >ref&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>vector中push_back和emplace_back有啥区别？</title><link>https://leo-bliss.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</link><pubDate>Thu, 08 Sep 2022 22:57:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</guid><description>&lt;h2 id="vector">vector&lt;/h2>
-&lt;ul>
+&lt;/ul></description></item><item><title>vector中push_back和emplace_back有啥区别？</title><link>https://leo-bliss.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</link><pubDate>Thu, 08 Sep 2022 22:57:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/vector%E4%B8%ADpush_back%E5%92%8Cemplace_back%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB/</guid><description>&lt;h2 id="vector">vector
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>push_back&lt;/code> 和&lt;code>emplace_back&lt;/code>:
 &lt;ul>
 &lt;li>
@@ -2102,8 +2102,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
-&lt;/ul></description></item><item><title>move and forward</title><link>https://leo-bliss.github.io/p/move-and-forward/</link><pubDate>Tue, 06 Sep 2022 23:50:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/move-and-forward/</guid><description>&lt;h1 id="移动语义和完美转发">移动语义和完美转发&lt;/h1>
-&lt;ul>
+&lt;/ul></description></item><item><title>move and forward</title><link>https://leo-bliss.github.io/p/move-and-forward/</link><pubDate>Tue, 06 Sep 2022 23:50:00 +0800</pubDate><guid>https://leo-bliss.github.io/p/move-and-forward/</guid><description>&lt;h1 id="移动语义和完美转发">移动语义和完美转发
+&lt;/h1>&lt;ul>
 &lt;li>
 &lt;p>左值：表达式结束后依然存在的持久化对象，注意：具名右值引用是左值：&lt;code>int&amp;amp;&amp;amp; val = 1024; // val为左值&lt;/code>&lt;/p>
 &lt;/li>
@@ -2620,8 +2620,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;li>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>c++多线程总结</title><link>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="thread">thread&lt;/h2>
-&lt;p>基础概念：&lt;/p>
+&lt;/ul></description></item><item><title>c++多线程总结</title><link>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/c-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="thread">thread
+&lt;/h2>&lt;p>基础概念：&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>并发：一个处理器在一定时间间隔(时间片)内轮流执行任务。 多任务是抢占资源的。&lt;/p>
@@ -2636,18 +2636,18 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;p>临界区： 每个进程访问临界资源的那段代码和共享变量有关的程序段。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="并发的实现方式">并发的实现方式&lt;/h3>
-&lt;ul>
+&lt;h3 id="并发的实现方式">并发的实现方式
+&lt;/h3>&lt;ul>
 &lt;li>通过多个进程实现并发&lt;/li>
 &lt;li>通过创建多个线程实现并发&lt;/li>
 &lt;/ul>
-&lt;h4 id="进程间通信">进程间通信&lt;/h4>
-&lt;ul>
+&lt;h4 id="进程间通信">进程间通信
+&lt;/h4>&lt;ul>
 &lt;li>同一电脑： 管道，共享内存，文件， 消息队列&lt;/li>
 &lt;li>不同电脑： socket通信&lt;/li>
 &lt;/ul>
-&lt;h4 id="线程间通信">线程间通信&lt;/h4>
-&lt;ul>
+&lt;h4 id="线程间通信">线程间通信
+&lt;/h4>&lt;ul>
 &lt;li>共享内存，比如使用全局变量&lt;/li>
 &lt;li>共享数据分析：
 &lt;ul>
@@ -2656,8 +2656,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h4 id="死锁">死锁&lt;/h4>
-&lt;blockquote>
+&lt;h4 id="死锁">死锁
+&lt;/h4>&lt;blockquote>
 &lt;p>只有至少有两把锁才可能出现死锁&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -2691,8 +2691,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="api">API&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h3 id="api">API
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -2710,12 +2710,12 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;li>尽可能不使用&lt;code>detach&lt;/code>&lt;/li>
 &lt;li>明确往线程对象入口函数参数指定需要传入&lt;strong>真引用&lt;/strong>则必须使用&lt;code>std::ref&lt;/code>，否则都是默认拷贝，但是传真引用只有使用&lt;code>join&lt;/code>才是安全的&lt;/li>
 &lt;/ul>
-&lt;h4 id="lock_guard">lock_guard&lt;/h4>
-&lt;ul>
+&lt;h4 id="lock_guard">lock_guard
+&lt;/h4>&lt;ul>
 &lt;li>&lt;code>std::lock_gurad&amp;lt;std::mutex&amp;gt; lock(mtx, std::adopt_lock)&lt;/code>, &lt;code>std::adopt_lock&lt;/code>适应之前mtx已经了lock，从而不再lock&lt;/li>
 &lt;/ul>
-&lt;h4 id="unique_lock">unique_lock&lt;/h4>
-&lt;ul>
+&lt;h4 id="unique_lock">unique_lock
+&lt;/h4>&lt;ul>
 &lt;li>
 &lt;p>可以完全取代&lt;code>lock_guard&lt;/code>, 而且更灵活，但是占有更多空间，相比&lt;code>std::adopt_lock&lt;/code>还有其他参数&lt;/p>
 &lt;/li>
@@ -2738,8 +2738,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;p>&lt;code>unique_lock&lt;/code>对象所有权转移方法：使用std::move； 通过一个函数作为临时对象返回；&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h4 id="条件变量">条件变量&lt;/h4>
-&lt;ul>
+&lt;h4 id="条件变量">条件变量
+&lt;/h4>&lt;ul>
 &lt;li>&lt;code>std::condition_variable&lt;/code>:需要结合互斥量进行使用&lt;/li>
 &lt;li>&lt;code>wait&lt;/code>():
 &lt;ul>
@@ -2767,8 +2767,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="future">future&lt;/h3>
-&lt;ul>
+&lt;h3 id="future">future
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>&lt;code>vaild()&lt;/code>: 判断值是否有效&lt;/p>
 &lt;/li>
@@ -2794,14 +2794,14 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;p>&lt;code>shared_future&lt;/code>: 用于多个线程获取future数据，由于普通future对象只支持get一次，&lt;code>std::shared_future&amp;lt;int&amp;gt; sf = std::thread([]{return 1;});&lt;/code>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h4 id="atomic">atomic&lt;/h4>
-&lt;ul>
+&lt;h4 id="atomic">atomic
+&lt;/h4>&lt;ul>
 &lt;li>原子操作概念：不可分割的操作，要么完成要么未完成， 不可能出现中间状态。在多线程种不会被打断的程序执行片段。 效率上比互斥量更高。适用于一个变量而不是一个代码段。能用原子操作就不用互斥量；一般针对&lt;code>++, --, +=, -=&lt;/code>操作符，其他的不一定支持原子操作，比如&lt;code>x = x + 1&lt;/code>不支持原子操作。&lt;/li>
 &lt;li>&lt;code>load()&lt;/code>原子方式读取值，没有拷贝构造和赋值操作符， 可以这样进行复制：&lt;code>std::atomic&amp;lt;int&amp;gt; m2(m1.load())&lt;/code>;&lt;/li>
 &lt;li>&lt;code>store(v)&lt;/code>原子方式写入值，&lt;code>std::atomic&amp;lt;int&amp;gt;m1 = 0; m1.store(1);&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h4 id="async">async&lt;/h4>
-&lt;blockquote>
+&lt;h4 id="async">async
+&lt;/h4>&lt;blockquote>
 &lt;p>用于创建异步任务&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -2887,8 +2887,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
-&lt;h4 id="windows下的临界区">windows下的临界区&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h4 id="windows下的临界区">windows下的临界区
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -2969,13 +2969,13 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/div>&lt;ul>
 &lt;li>windows中允许在同一个线程中（不同线程会卡住等待）进入同一个临界区多次, c++11不允许在同一线程中lock普通互斥量多次，否则报异常；&lt;/li>
 &lt;/ul>
-&lt;h4 id="recursive_mutex">recursive_mutex&lt;/h4>
-&lt;ul>
+&lt;h4 id="recursive_mutex">recursive_mutex
+&lt;/h4>&lt;ul>
 &lt;li>允许在同一线程中同一个递归互斥量多次lock&lt;/li>
 &lt;li>一般使用它是代码设计的不太好，使用后需要考虑是否有优化空间，使得只lock一次&lt;/li>
 &lt;/ul>
-&lt;h4 id="带超时的互斥量">带超时的互斥量&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h4 id="带超时的互斥量">带超时的互斥量
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -3025,8 +3025,8 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>lua-C API</title><link>https://leo-bliss.github.io/p/lua-c-api/</link><pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/lua-c-api/</guid><description>&lt;img src="https://leo-bliss.github.io/p/lua-c-api/capi-01.png" alt="Featured image of post lua-C API" />&lt;h2 id="一个简单的lua-解释器">一个简单的lua 解释器&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div></description></item><item><title>lua-C API</title><link>https://leo-bliss.github.io/p/lua-c-api/</link><pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/lua-c-api/</guid><description>&lt;img src="https://leo-bliss.github.io/p/lua-c-api/capi-01.png" alt="Featured image of post lua-C API" />&lt;h2 id="一个简单的lua-解释器">一个简单的lua 解释器
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -3120,20 +3120,20 @@ private成员不是不允许外部访问吗？这么为什么这里可以直接�
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="lua-和-c-组件的通信">lua 和 C 组件的通信&lt;/h2>
-&lt;p>lua 和 C 主要组件的通信 是通过强大的&lt;strong>虚栈（virtual stack）&lt;/strong>&lt;/p>
+&lt;/div>&lt;h2 id="lua-和-c-组件的通信">lua 和 C 组件的通信
+&lt;/h2>&lt;p>lua 和 C 主要组件的通信 是通过强大的&lt;strong>虚栈（virtual stack）&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/lua-c-api/capi-01.png"
 width="964"
 height="587"
-srcset="https://leo-bliss.github.io/p/lua-c-api/capi-01_hu4161916461915393242.png 480w, https://leo-bliss.github.io/p/lua-c-api/capi-01_hu13696294086769976934.png 1024w"
+srcset="https://leo-bliss.github.io/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/lua-c-api/capi-01_huca6d7e28af0b1415d7250274d96385f1_25992_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="capi-01"
 class="gallery-image"
 data-flex-grow="164"
 data-flex-basis="394px"
 >&lt;/p>
-&lt;h3 id="虚栈压入元素">虚栈压入元素&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h3 id="虚栈压入元素">虚栈压入元素
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -3143,12 +3143,12 @@ data-flex-basis="394px"
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl"> &lt;span class="n">void&lt;/span> &lt;span class="n">lua_pushnil&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">lua_State&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">L&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">void&lt;/span> &lt;span class="n">lua_pushboolean&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">lua_State&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">L&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="ne">int&lt;/span> &lt;span class="ne">bool&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">void&lt;/span> &lt;span class="n">lua_pushnumber&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">lua_State&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">L&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">lua_Number&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">void&lt;/span> &lt;span class="n">lua_pushinteger&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">lua_State&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">L&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">lua_Integer&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">void&lt;/span> &lt;span class="n">lua_pushlstring&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">lua_State&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">L&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">len&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">void&lt;/span> &lt;span class="n">lua_pushstring&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">lua_State&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">L&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> void lua_pushnil (lua_State *L);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> void lua_pushboolean (lua_State *L, int bool);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> void lua_pushnumber (lua_State *L, lua_Number n);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> void lua_pushinteger (lua_State *L, lua_Integer n);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> void lua_pushlstring (lua_State *L, const char *s, size_t len);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> void lua_pushstring (lua_State *L, const char *s);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>向栈中压入元素前要保证stack中至少有20个空位（slots）,在lua.h中定义了这个常量宏：LUA_MINSTACK；
@@ -3158,8 +3158,8 @@ data-flex-basis="394px"
 &lt;li>void luaL_checkstack (lua_State *L, int sz, const char *msg);&lt;/li>
 &lt;/ul>
 &lt;p>参数sz是需要检查的slots数量，第二个函数使得可以返回一个自定义的出错信息而不是错误码；&lt;/p>
-&lt;h3 id="虚栈提取元素">虚栈提取元素&lt;/h3>
-&lt;ul>
+&lt;h3 id="虚栈提取元素">虚栈提取元素
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>index可正可负，第一个压入元素（栈底）的index=1,最后压入元素（栈顶）的index=-1；&lt;/p>
 &lt;/li>
@@ -3181,8 +3181,8 @@ data-flex-basis="394px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="其他虚栈操作">其他虚栈操作&lt;/h3>
-&lt;ul>
+&lt;h3 id="其他虚栈操作">其他虚栈操作
+&lt;/h3>&lt;ul>
 &lt;li>int lua_gettop (lua_State *L); // 获取栈元素个数，也是栈顶的的正index&lt;/li>
 &lt;li>void lua_settop (lua_State *L, int index); // 当index大于现在栈元素个数时补nil,小于时丢弃多的，置空：lua_settop(L,0)&lt;/li>
 &lt;li>void lua_pushvalue (lua_State *L, int index); // 拷贝一个index处的元素压入栈中&lt;/li>
@@ -3206,7 +3206,7 @@ data-flex-basis="394px"
 &lt;p>&lt;img src="https://leo-bliss.github.io/p/lua-c-api/capi-02.png"
 width="969"
 height="804"
-srcset="https://leo-bliss.github.io/p/lua-c-api/capi-02_hu11040686580617662228.png 480w, https://leo-bliss.github.io/p/lua-c-api/capi-02_hu9447111076815668830.png 1024w"
+srcset="https://leo-bliss.github.io/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_480x0_resize_box_3.png 480w, https://leo-bliss.github.io/p/lua-c-api/capi-02_hu877d6973a4bef29d8d142cc56cfdd96f_120930_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="capi-02"
 class="gallery-image"
@@ -3246,8 +3246,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="测试代码">测试代码&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h3 id="测试代码">测试代码
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -3553,8 +3553,8 @@ data-flex-basis="289px"
 &lt;ul>
 &lt;li>&lt;code>package&lt;/code> 是 &lt;code>modules&lt;/code> 的集合&lt;/li>
 &lt;/ul>
-&lt;h3 id="加载使用模块">加载使用模块&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h3 id="加载使用模块">加载使用模块
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -3564,9 +3564,9 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">m.sin&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mf">3.14&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">-- 0.0015926529164868&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="require-的参数和返回值">require 的参数和返回值&lt;/h3>
-&lt;h4 id="参数">参数&lt;/h4>
-&lt;ul>
+&lt;/div>&lt;h3 id="require-的参数和返回值">require 的参数和返回值
+&lt;/h3>&lt;h4 id="参数">参数
+&lt;/h4>&lt;ul>
 &lt;li>&lt;code>require&lt;/code>只需要传入一个参数&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -3591,14 +3591,14 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cos&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mf">3.14&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">-- -0.99999873172754&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="返回值">返回值&lt;/h4>
-&lt;ul>
+&lt;/div>&lt;h4 id="返回值">返回值
+&lt;/h4>&lt;ul>
 &lt;li>如果加载成功，模块有返回值，就是模块返回值的类型，如果没有返回值，返回值为&lt;code>boolean&lt;/code>类型;&lt;/li>
 &lt;li>模块加载失败会报错 ;&lt;/li>
 &lt;li>&lt;a class="link" href="[https://blog.csdn.net/qweewqpkn/article/details/49050507]%28https://blog.csdn.net/qweewqpkn/article/details/49050507%29" >ref&lt;/a>;&lt;/li>
 &lt;/ul>
-&lt;h4 id="其他">其他&lt;/h4>
-&lt;ul>
+&lt;h4 id="其他">其他
+&lt;/h4>&lt;ul>
 &lt;li>一旦某个模块已经加载成功，其他需要用这个模块的调用都只需返回这个模块，而不需执行其他代码（比如查找模块等）&lt;/li>
 &lt;li>加载操作时查找lua模块的路径存在&lt;code>package.path&lt;/code>中,加入 查找路径 示例：&lt;/li>
 &lt;/ul>
@@ -3622,9 +3622,9 @@ data-flex-basis="289px"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="n">package.loaded&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">modname&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">nil&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="编写lua模块">编写lua模块&lt;/h3>
-&lt;h4 id="简单示例">简单示例&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h3 id="编写lua模块">编写lua模块
+&lt;/h3>&lt;h4 id="简单示例">简单示例
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -3720,8 +3720,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">return&lt;/span> &lt;span class="n">M&lt;/span> &lt;span class="c1">-- 加载时返回模块&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="使用上面编写的模块">使用上面编写的模块&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h4 id="使用上面编写的模块">使用上面编写的模块
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -3749,8 +3749,8 @@ data-flex-basis="289px"
 &lt;p>但是在lua中只能修改 值类型 为&lt;code>table&lt;/code>的元表，其他类型的元表修改需要通过C语言代码和debug库;&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="修改和获取元表">修改和获取元表&lt;/h3>
-&lt;ul>
+&lt;h3 id="修改和获取元表">修改和获取元表
+&lt;/h3>&lt;ul>
 &lt;li>&lt;code>setmetatable(tb,mt)&lt;/code>：设置&lt;code>tb&lt;/code>的元表为&lt;code>mt&lt;/code>,并返回&lt;code>tb&lt;/code>;&lt;/li>
 &lt;li>&lt;code>getmetatable(tb)&lt;/code>: 获取到&lt;code>tb&lt;/code>的元表；&lt;/li>
 &lt;li>上面两个方法实质都是通过元表中的&lt;code>__matetable&lt;/code>进行相关操作,通过&lt;code>__matetable&lt;/code>重新赋值可以保证元表的安全，即阻止这两个函数对元表进行操作；&lt;/li>
@@ -3791,8 +3791,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="常见的元方法">常见的元方法&lt;/h3>
-&lt;ol>
+&lt;/div>&lt;h3 id="常见的元方法">常见的元方法
+&lt;/h3>&lt;ol>
 &lt;li>运算符元方法:&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -3854,14 +3854,14 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">--]]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="元方法的使用">元方法的使用&lt;/h3>
-&lt;h4 id="运算符元方法和__tostring">运算符元方法和&lt;code>__tostring&lt;/code>&lt;/h4>
-&lt;blockquote>
+&lt;/div>&lt;h3 id="元方法的使用">元方法的使用
+&lt;/h3>&lt;h4 id="运算符元方法和__tostring">运算符元方法和&lt;code>__tostring&lt;/code>
+&lt;/h4>&lt;blockquote>
 &lt;p>通过编写运算符元方法实现运算符的重载&lt;/p>
 &lt;/blockquote>
-&lt;h5 id="heading">&lt;/h5>
-&lt;h5 id="编写简单的set">编写简单的Set&lt;/h5>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;h5 id="heading">
+&lt;/h5>&lt;h5 id="编写简单的set">编写简单的Set
+&lt;/h5>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -4067,8 +4067,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">return&lt;/span> &lt;span class="n">Set&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h5 id="测试set">测试Set&lt;/h5>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h5 id="测试set">测试Set
+&lt;/h5>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -4140,8 +4140,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="__index">&lt;code>__index&lt;/code>&lt;/h4>
-&lt;ul>
+&lt;/div>&lt;h4 id="__index">&lt;code>__index&lt;/code>
+&lt;/h4>&lt;ul>
 &lt;li>如果访问table中没有定义的元素，经常返回nil;&lt;/li>
 &lt;li>原因： 访问字段是通过调用元函数&lt;code>__index&lt;/code>来完成的，然而一般这个函数没有定义，所以我们访问没有定义的元素得到的是nil;&lt;/li>
 &lt;li>用途： 我们可以定义这个元函数来改变这种行为(比如&lt;strong>访问一个不存在的元素时访问一个默认值&lt;/strong>)；&lt;/li>
@@ -4230,8 +4230,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rawget&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">tb&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;x&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="n">rawget&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">tb&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;y&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">-- 1 nil，可见rawget不会访问__index&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="__newindex">&lt;code>__newindex&lt;/code>&lt;/h4>
-&lt;ul>
+&lt;/div>&lt;h4 id="__newindex">&lt;code>__newindex&lt;/code>
+&lt;/h4>&lt;ul>
 &lt;li>当我们给table中一个不存在的 index 赋值时， 如果定义了&lt;code>__newindex&lt;/code>,则会调用这个元函数而不是直接进行赋值操作,可以借助这个特性保证table只可读;&lt;/li>
 &lt;li>和&lt;code>__index&lt;/code>类似，如果这个元方法被赋值为另一个table,则不会对原table起作用，而是操作 赋值给这样元方法的table；&lt;/li>
 &lt;/ul>
@@ -4330,8 +4330,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">--]]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="__call">&lt;code>__call&lt;/code>&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h4 id="__call">&lt;code>__call&lt;/code>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -4371,8 +4371,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- call赋值的函数第一参数就是原来的表，后面可以有其他参数&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>lua-function</title><link>https://leo-bliss.github.io/p/lua-function/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/lua-function/</guid><description>&lt;h3 id="函数调用形式">函数调用形式&lt;/h3>
-&lt;p>一般函数调用都要加括号,但是又两种特殊情况不需要：&lt;/p>
+&lt;/div></description></item><item><title>lua-function</title><link>https://leo-bliss.github.io/p/lua-function/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/lua-function/</guid><description>&lt;h3 id="函数调用形式">函数调用形式
+&lt;/h3>&lt;p>一般函数调用都要加括号,但是又两种特殊情况不需要：&lt;/p>
 &lt;ul>
 &lt;li>case 1: 传的参数的是 一个 字符串（不是用变量保留的字符串）&lt;/li>
 &lt;li>case 2: 传的参数的是 一个 表的构造 &lt;code>{}&lt;/code>&lt;/li>
@@ -4417,8 +4417,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">test_case2&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="函数特性">函数特性&lt;/h3>
-&lt;ul>
+&lt;/div>&lt;h3 id="函数特性">函数特性
+&lt;/h3>&lt;ul>
 &lt;li>可以多返回值&lt;/li>
 &lt;li>函数参数个数可以不定的，参数列表 用 &amp;ldquo;&amp;hellip;&amp;rdquo;&lt;/li>
 &lt;/ul>
@@ -4556,8 +4556,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">--]]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>lua-table</title><link>https://leo-bliss.github.io/p/lua-table/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/lua-table/</guid><description>&lt;h3 id="table的key以及存储机制">table的key以及存储机制&lt;/h3>
-&lt;ul>
+&lt;/div></description></item><item><title>lua-table</title><link>https://leo-bliss.github.io/p/lua-table/</link><pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate><guid>https://leo-bliss.github.io/p/lua-table/</guid><description>&lt;h3 id="table的key以及存储机制">table的key以及存储机制
+&lt;/h3>&lt;ul>
 &lt;li>
 &lt;p>&lt;code>{}&lt;/code>表示table,它可以以除nil外的任何对象作为key； table的底层由 数组 和 hash表 构成；&lt;/p>
 &lt;/li>
@@ -4576,8 +4576,8 @@ data-flex-basis="289px"
 >https://blog.csdn.net/zr339361504/article/details/52432163&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="table计算长度">table计算长度:&lt;/h3>
-&lt;blockquote>
+&lt;h3 id="table计算长度">table计算长度:
+&lt;/h3>&lt;blockquote>
 &lt;p>采用#table_name 计算table长度&lt;/p>
 &lt;/blockquote>
 &lt;p>注意：&lt;/p>
@@ -4624,8 +4624,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">#&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">--0,发现并没有计算hash表部分&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="求长度伪代码">#求长度伪代码：&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h3 id="求长度伪代码">#求长度伪代码：
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
@@ -4655,8 +4655,8 @@ data-flex-basis="289px"
 &lt;li>存在nil的table 求长度不稳定;&lt;/li>
 &lt;li>尽量使用数组部分，尽量避免重新散列操作（hash表满后 会 重新分配底层的array和hash表的内存，严重影响效率）;&lt;/li>
 &lt;/ol>
-&lt;h3 id="table-的遍历方式">table 的遍历方式&lt;/h3>
-&lt;ul>
+&lt;h3 id="table-的遍历方式">table 的遍历方式
+&lt;/h3>&lt;ul>
 &lt;li>方式1:&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -4713,8 +4713,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">end&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="测试代码">测试代码&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h3 id="测试代码">测试代码
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -4830,8 +4830,8 @@ data-flex-basis="289px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">end&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="常用函数">常用函数&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
+&lt;/div>&lt;h3 id="常用函数">常用函数
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
